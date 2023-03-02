@@ -1,10 +1,10 @@
 /****************************************************************************************************************************************** 
-* ÎÄ¼þÃû³Æ:	SWM341_i2c.c
-* ¹¦ÄÜËµÃ÷:	SWM341µ¥Æ¬»úµÄI2C´®ÐÐ½Ó¿Ú¹¦ÄÜÇý¶¯¿â
-* ¼¼ÊõÖ§³Ö:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
-* ×¢ÒâÊÂÏî:
-* °æ±¾ÈÕÆÚ:	V1.0.0		2016Äê1ÔÂ30ÈÕ
-* Éý¼¶¼ÇÂ¼:  
+* æ–‡ä»¶åç§°:	SWM341_i2c.c
+* åŠŸèƒ½è¯´æ˜Ž:	SWM341å•ç‰‡æœºçš„I2Cä¸²è¡ŒæŽ¥å£åŠŸèƒ½é©±åŠ¨åº“
+* æŠ€æœ¯æ”¯æŒ:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
+* æ³¨æ„äº‹é¡¹:
+* ç‰ˆæœ¬æ—¥æœŸ:	V1.0.0		2016å¹´1æœˆ30æ—¥
+* å‡çº§è®°å½•:  
 *
 *
 *******************************************************************************************************************************************
@@ -23,12 +23,12 @@
 
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Init()
-* ¹¦ÄÜËµÃ÷:	I2C³õÊ¼»¯
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-*			I2C_InitStructure * initStruct	°üº¬I2CÏà¹ØÉè¶¨ÖµµÄ½á¹¹Ìå
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_Init()
+* åŠŸèƒ½è¯´æ˜Ž:	I2Cåˆå§‹åŒ–
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+*			I2C_InitStructure * initStruct	åŒ…å«I2Cç›¸å…³è®¾å®šå€¼çš„ç»“æž„ä½“
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_Init(I2C_TypeDef * I2Cx, I2C_InitStructure * initStruct)
 {
@@ -43,7 +43,7 @@ void I2C_Init(I2C_TypeDef * I2Cx, I2C_InitStructure * initStruct)
 		break;
 	}
 	
-	I2C_Close(I2Cx);	//Ò»Ð©¹Ø¼ü¼Ä´æÆ÷Ö»ÄÜÔÚI2C¹Ø±ÕÊ±ÉèÖÃ
+	I2C_Close(I2Cx);	//ä¸€äº›å…³é”®å¯„å­˜å™¨åªèƒ½åœ¨I2Cå…³é—­æ—¶è®¾ç½®
 	
 	if(initStruct->Master == 1)
 	{
@@ -130,11 +130,11 @@ void I2C_Init(I2C_TypeDef * I2Cx, I2C_InitStructure * initStruct)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Open()
-* ¹¦ÄÜËµÃ÷:	I2C´ò¿ª£¬ÔÊÐíÊÕ·¢
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_Open()
+* åŠŸèƒ½è¯´æ˜Ž:	I2Cæ‰“å¼€ï¼Œå…è®¸æ”¶å‘
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_Open(I2C_TypeDef * I2Cx)
 {
@@ -142,11 +142,11 @@ void I2C_Open(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Close()
-* ¹¦ÄÜËµÃ÷:	I2C¹Ø±Õ£¬½ûÖ¹ÊÕ·¢
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_Close()
+* åŠŸèƒ½è¯´æ˜Ž:	I2Cå…³é—­ï¼Œç¦æ­¢æ”¶å‘
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_Close(I2C_TypeDef * I2Cx)
 {
@@ -154,24 +154,24 @@ void I2C_Close(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Start()
-* ¹¦ÄÜËµÃ÷:	²úÉúÆðÊ¼ÐÅºÅ²¢·¢ËÍÉè±¸µØÖ·
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-*			uint8_t addr			Éè±¸µØÖ·
-*			uint8_t wait			ÊÇ·ñµÈ´ý·¢ËÍÍê³É£¬1 µÈ´ý·¢ËÍÍê³É   0 ²»µÈ´ý£¬Á¢¼´·µ»Ø
-* Êä    ³ö: uint8_t					1 ½ÓÊÕµ½ACK   0 ½ÓÊÕµ½NACK
-* ×¢ÒâÊÂÏî: ÈôÑ¡Ôñ²»µÈ´ý£¬Á¢¼´·µ»Ø£¬Ôò·µ»ØÖµÎÞÒâÒå£»ºóÐø¿ÉÍ¨¹ý I2C_StartDone() ²éÑ¯ÊÇ·ñÍê³É£¬Íê³Éºóµ÷ÓÃ I2C_IsAck() ²éÑ¯½ÓÊÕµ½ACK»¹ÊÇNACK
+* å‡½æ•°åç§°:	I2C_Start()
+* åŠŸèƒ½è¯´æ˜Ž:	äº§ç”Ÿèµ·å§‹ä¿¡å·å¹¶å‘é€è®¾å¤‡åœ°å€
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+*			uint8_t addr			è®¾å¤‡åœ°å€
+*			uint8_t wait			æ˜¯å¦ç­‰å¾…å‘é€å®Œæˆï¼Œ1 ç­‰å¾…å‘é€å®Œæˆ   0 ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›ž
+* è¾“    å‡º: uint8_t					1 æŽ¥æ”¶åˆ°ACK   0 æŽ¥æ”¶åˆ°NACK
+* æ³¨æ„äº‹é¡¹: è‹¥é€‰æ‹©ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›žï¼Œåˆ™è¿”å›žå€¼æ— æ„ä¹‰ï¼›åŽç»­å¯é€šè¿‡ I2C_StartDone() æŸ¥è¯¢æ˜¯å¦å®Œæˆï¼Œå®ŒæˆåŽè°ƒç”¨ I2C_IsAck() æŸ¥è¯¢æŽ¥æ”¶åˆ°ACKè¿˜æ˜¯NACK
 ******************************************************************************************************************************************/
 uint8_t I2C_Start(I2C_TypeDef * I2Cx, uint8_t addr, uint8_t wait)
 {
 	I2Cx->TXDATA = addr;
 	I2Cx->MCR = (1 << I2C_MCR_STA_Pos) |
-				(1 << I2C_MCR_WR_Pos);				//·¢ËÍÆðÊ¼Î»ºÍ´Ó»úµØÖ·
+				(1 << I2C_MCR_WR_Pos);				//å‘é€èµ·å§‹ä½å’Œä»Žæœºåœ°å€
 	
 	if(wait == 0)
 		return 0;
 	
-	while(I2Cx->MCR & I2C_MCR_WR_Msk) __NOP();		//µÈ´ý·¢ËÍÍê³É
+	while(I2Cx->MCR & I2C_MCR_WR_Msk) __NOP();		//ç­‰å¾…å‘é€å®Œæˆ
 	
 	return (I2Cx->TR & I2C_TR_RXACK_Msk) ? 0 : 1;
 }
@@ -187,12 +187,12 @@ uint8_t I2C_IsAck(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Stop()
-* ¹¦ÄÜËµÃ÷:	²úÉúÍ£Ö¹ÐÅºÅ
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-*			uint8_t wait			ÊÇ·ñµÈ´ý·¢ËÍÍê³É£¬1 µÈ´ý·¢ËÍÍê³É   0 ²»µÈ´ý£¬Á¢¼´·µ»Ø
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÈôÑ¡Ôñ²»µÈ´ý£¬Á¢¼´·µ»Ø£»ºóÐø¿ÉÍ¨¹ý I2C_StopDone() ²éÑ¯ÊÇ·ñÍê³É
+* å‡½æ•°åç§°:	I2C_Stop()
+* åŠŸèƒ½è¯´æ˜Ž:	äº§ç”Ÿåœæ­¢ä¿¡å·
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+*			uint8_t wait			æ˜¯å¦ç­‰å¾…å‘é€å®Œæˆï¼Œ1 ç­‰å¾…å‘é€å®Œæˆ   0 ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›ž
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: è‹¥é€‰æ‹©ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›žï¼›åŽç»­å¯é€šè¿‡ I2C_StopDone() æŸ¥è¯¢æ˜¯å¦å®Œæˆ
 ******************************************************************************************************************************************/
 void I2C_Stop(I2C_TypeDef * I2Cx, uint8_t wait)
 {
@@ -201,7 +201,7 @@ void I2C_Stop(I2C_TypeDef * I2Cx, uint8_t wait)
 	if(wait == 0)
 		return;
 	
-	while(I2Cx->MCR & I2C_MCR_STO_Msk) __NOP();		//µÈ´ý·¢ËÍÍê³É
+	while(I2Cx->MCR & I2C_MCR_STO_Msk) __NOP();		//ç­‰å¾…å‘é€å®Œæˆ
 }
 
 uint8_t I2C_StopDone(I2C_TypeDef * I2Cx)
@@ -210,13 +210,13 @@ uint8_t I2C_StopDone(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Write()
-* ¹¦ÄÜËµÃ÷:	Ð´ÈëÒ»¸öÊý¾Ý
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-*			uint8_t data			ÒªÐ´µÄÊý¾Ý
-*			uint8_t wait			ÊÇ·ñµÈ´ý·¢ËÍÍê³É£¬1 µÈ´ý·¢ËÍÍê³É   0 ²»µÈ´ý£¬Á¢¼´·µ»Ø
-* Êä    ³ö: uint8_t					1 ½ÓÊÕµ½ACK   0 ½ÓÊÕµ½NACK
-* ×¢ÒâÊÂÏî: ÈôÑ¡Ôñ²»µÈ´ý£¬Á¢¼´·µ»Ø£¬Ôò·µ»ØÖµÎÞÒâÒå£»ºóÐø¿ÉÍ¨¹ý I2C_WriteDone() ²éÑ¯ÊÇ·ñÍê³É£¬Íê³Éºóµ÷ÓÃ I2C_IsAck() ²éÑ¯½ÓÊÕµ½ACK»¹ÊÇNACK
+* å‡½æ•°åç§°:	I2C_Write()
+* åŠŸèƒ½è¯´æ˜Ž:	å†™å…¥ä¸€ä¸ªæ•°æ®
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+*			uint8_t data			è¦å†™çš„æ•°æ®
+*			uint8_t wait			æ˜¯å¦ç­‰å¾…å‘é€å®Œæˆï¼Œ1 ç­‰å¾…å‘é€å®Œæˆ   0 ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›ž
+* è¾“    å‡º: uint8_t					1 æŽ¥æ”¶åˆ°ACK   0 æŽ¥æ”¶åˆ°NACK
+* æ³¨æ„äº‹é¡¹: è‹¥é€‰æ‹©ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›žï¼Œåˆ™è¿”å›žå€¼æ— æ„ä¹‰ï¼›åŽç»­å¯é€šè¿‡ I2C_WriteDone() æŸ¥è¯¢æ˜¯å¦å®Œæˆï¼Œå®ŒæˆåŽè°ƒç”¨ I2C_IsAck() æŸ¥è¯¢æŽ¥æ”¶åˆ°ACKè¿˜æ˜¯NACK
 ******************************************************************************************************************************************/
 uint8_t I2C_Write(I2C_TypeDef * I2Cx, uint8_t data, uint8_t wait)
 {	
@@ -226,7 +226,7 @@ uint8_t I2C_Write(I2C_TypeDef * I2Cx, uint8_t data, uint8_t wait)
 	if(wait == 0)
 		return 0;
 	
-	while(I2Cx->MCR & I2C_MCR_WR_Msk) __NOP();		//µÈ´ý·¢ËÍÍê³É
+	while(I2Cx->MCR & I2C_MCR_WR_Msk) __NOP();		//ç­‰å¾…å‘é€å®Œæˆ
 	
 	return (I2Cx->TR & I2C_TR_RXACK_Msk) ? 0 : 1;
 }
@@ -237,13 +237,13 @@ uint8_t I2C_WriteDone(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_Read()
-* ¹¦ÄÜËµÃ÷:	¶ÁÈ¡Ò»¸öÊý¾Ý
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-*			uint8_t ack				1 ·¢ËÍACK   0 ·¢ËÍNACK
-*			uint8_t wait			ÊÇ·ñµÈ´ý·¢ËÍÍê³É£¬1 µÈ´ý·¢ËÍÍê³É   0 ²»µÈ´ý£¬Á¢¼´·µ»Ø
-* Êä    ³ö: uint8_t					¶ÁÈ¡µ½µÄÊý¾Ý
-* ×¢ÒâÊÂÏî: ÈôÑ¡Ôñ²»µÈ´ý£¬Á¢¼´·µ»Ø£¬Ôò·µ»ØÖµÎÞÒâÒå£»ºóÐø¿ÉÍ¨¹ý I2C_ReadDone() ²éÑ¯ÊÇ·ñÍê³É£¬Íê³ÉºóÍ¨¹ý I2Cx->RXDATA »ñÈ¡¶ÁÈ¡µ½µÄÊý¾Ý
+* å‡½æ•°åç§°:	I2C_Read()
+* åŠŸèƒ½è¯´æ˜Ž:	è¯»å–ä¸€ä¸ªæ•°æ®
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+*			uint8_t ack				1 å‘é€ACK   0 å‘é€NACK
+*			uint8_t wait			æ˜¯å¦ç­‰å¾…å‘é€å®Œæˆï¼Œ1 ç­‰å¾…å‘é€å®Œæˆ   0 ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›ž
+* è¾“    å‡º: uint8_t					è¯»å–åˆ°çš„æ•°æ®
+* æ³¨æ„äº‹é¡¹: è‹¥é€‰æ‹©ä¸ç­‰å¾…ï¼Œç«‹å³è¿”å›žï¼Œåˆ™è¿”å›žå€¼æ— æ„ä¹‰ï¼›åŽç»­å¯é€šè¿‡ I2C_ReadDone() æŸ¥è¯¢æ˜¯å¦å®Œæˆï¼Œå®ŒæˆåŽé€šè¿‡ I2Cx->RXDATA èŽ·å–è¯»å–åˆ°çš„æ•°æ®
 ******************************************************************************************************************************************/
 uint8_t I2C_Read(I2C_TypeDef * I2Cx, uint8_t ack, uint8_t wait)
 {
@@ -254,7 +254,7 @@ uint8_t I2C_Read(I2C_TypeDef * I2Cx, uint8_t ack, uint8_t wait)
 	if(wait == 0)
 		return 0;
 	
-	while(I2Cx->MCR & I2C_MCR_RD_Msk) __NOP();		//µÈ´ý½ÓÊÕÍê³É
+	while(I2Cx->MCR & I2C_MCR_RD_Msk) __NOP();		//ç­‰å¾…æŽ¥æ”¶å®Œæˆ
     
     return I2Cx->RXDATA;
 }
@@ -265,13 +265,13 @@ uint8_t I2C_ReadDone(I2C_TypeDef * I2Cx)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_INTEn()
-* ¹¦ÄÜËµÃ÷:	ÖÐ¶ÏÊ¹ÄÜ
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* 			uint32_t it				interrupt type£¬ÓÐÐ§ÖµI2C_IT_TX_EMPTY¡¢I2C_IT_RX_NOT_EMPTY¡¢I2C_IT_RX_OVF¡¢I2C_IT_TX_DONE¡¢I2C_IT_RX_DONE¡¢
-*									I2C_IT_SLV_DET_STA¡¢I2C_IT_SLV_DET_STP¡¢I2C_IT_ARB_LOST¡¢I2C_IT_SCL_LOW_TO ¼°Æä¡°»ò¡±
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_INTEn()
+* åŠŸèƒ½è¯´æ˜Ž:	ä¸­æ–­ä½¿èƒ½
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* 			uint32_t it				interrupt typeï¼Œæœ‰æ•ˆå€¼I2C_IT_TX_EMPTYã€I2C_IT_RX_NOT_EMPTYã€I2C_IT_RX_OVFã€I2C_IT_TX_DONEã€I2C_IT_RX_DONEã€
+*									I2C_IT_SLV_DET_STAã€I2C_IT_SLV_DET_STPã€I2C_IT_ARB_LOSTã€I2C_IT_SCL_LOW_TO åŠå…¶â€œæˆ–â€
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it)
 {
@@ -279,13 +279,13 @@ void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_INTDis()
-* ¹¦ÄÜËµÃ÷:	ÖÐ¶Ï½ûÖ¹
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* 			uint32_t it				interrupt type£¬ÓÐÐ§ÖµI2C_IT_TX_EMPTY¡¢I2C_IT_RX_NOT_EMPTY¡¢I2C_IT_RX_OVF¡¢I2C_IT_TX_DONE¡¢I2C_IT_RX_DONE¡¢
-*									I2C_IT_SLV_DET_STA¡¢I2C_IT_SLV_DET_STP¡¢I2C_IT_ARB_LOST¡¢I2C_IT_SCL_LOW_TO ¼°Æä¡°»ò¡±
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_INTDis()
+* åŠŸèƒ½è¯´æ˜Ž:	ä¸­æ–­ç¦æ­¢
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* 			uint32_t it				interrupt typeï¼Œæœ‰æ•ˆå€¼I2C_IT_TX_EMPTYã€I2C_IT_RX_NOT_EMPTYã€I2C_IT_RX_OVFã€I2C_IT_TX_DONEã€I2C_IT_RX_DONEã€
+*									I2C_IT_SLV_DET_STAã€I2C_IT_SLV_DET_STPã€I2C_IT_ARB_LOSTã€I2C_IT_SCL_LOW_TO åŠå…¶â€œæˆ–â€
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it)
 {
@@ -293,13 +293,13 @@ void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_INTClr()
-* ¹¦ÄÜËµÃ÷:	ÖÐ¶Ï±êÖ¾Çå³ý
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* 			uint32_t it				interrupt type£¬ÓÐÐ§ÖµI2C_IT_TX_EMPTY¡¢I2C_IT_RX_NOT_EMPTY¡¢I2C_IT_RX_OVF¡¢I2C_IT_TX_DONE¡¢I2C_IT_RX_DONE¡¢
-*									I2C_IT_SLV_DET_STA¡¢I2C_IT_SLV_DET_STP¡¢I2C_IT_ARB_LOST¡¢I2C_IT_SCL_LOW_TO ¼°Æä¡°»ò¡±
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_INTClr()
+* åŠŸèƒ½è¯´æ˜Ž:	ä¸­æ–­æ ‡å¿—æ¸…é™¤
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* 			uint32_t it				interrupt typeï¼Œæœ‰æ•ˆå€¼I2C_IT_TX_EMPTYã€I2C_IT_RX_NOT_EMPTYã€I2C_IT_RX_OVFã€I2C_IT_TX_DONEã€I2C_IT_RX_DONEã€
+*									I2C_IT_SLV_DET_STAã€I2C_IT_SLV_DET_STPã€I2C_IT_ARB_LOSTã€I2C_IT_SCL_LOW_TO åŠå…¶â€œæˆ–â€
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it)
 {
@@ -307,13 +307,13 @@ void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	I2C_INTStat()
-* ¹¦ÄÜËµÃ÷:	ÖÐ¶Ï×´Ì¬²éÑ¯
-* Êä    Èë: I2C_TypeDef * I2Cx		Ö¸¶¨Òª±»ÉèÖÃµÄI2C£¬ÓÐÐ§Öµ°üÀ¨I2C0¡¢I2C1
-* 			uint32_t it				interrupt type£¬ÓÐÐ§ÖµI2C_IT_TX_EMPTY¡¢I2C_IT_RX_NOT_EMPTY¡¢I2C_IT_RX_OVF¡¢I2C_IT_TX_DONE¡¢I2C_IT_RX_DONE¡¢
-*									I2C_IT_SLV_DET_STA¡¢I2C_IT_SLV_DET_STP¡¢I2C_IT_ARB_LOST¡¢I2C_IT_SCL_LOW_TO ¼°Æä¡°»ò¡±
-* Êä    ³ö: uint32_t				1 ÖÐ¶Ï·¢Éú    0 ÖÐ¶ÏÎ´·¢Éú
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	I2C_INTStat()
+* åŠŸèƒ½è¯´æ˜Ž:	ä¸­æ–­çŠ¶æ€æŸ¥è¯¢
+* è¾“    å…¥: I2C_TypeDef * I2Cx		æŒ‡å®šè¦è¢«è®¾ç½®çš„I2Cï¼Œæœ‰æ•ˆå€¼åŒ…æ‹¬I2C0ã€I2C1
+* 			uint32_t it				interrupt typeï¼Œæœ‰æ•ˆå€¼I2C_IT_TX_EMPTYã€I2C_IT_RX_NOT_EMPTYã€I2C_IT_RX_OVFã€I2C_IT_TX_DONEã€I2C_IT_RX_DONEã€
+*									I2C_IT_SLV_DET_STAã€I2C_IT_SLV_DET_STPã€I2C_IT_ARB_LOSTã€I2C_IT_SCL_LOW_TO åŠå…¶â€œæˆ–â€
+* è¾“    å‡º: uint32_t				1 ä¸­æ–­å‘ç”Ÿ    0 ä¸­æ–­æœªå‘ç”Ÿ
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 uint32_t I2C_INTStat(I2C_TypeDef * I2Cx, uint32_t it)
 {

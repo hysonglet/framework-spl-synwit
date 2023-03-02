@@ -2,12 +2,12 @@
 #define __SWM341_SDRAM_H__
 
 typedef struct {	
-	uint8_t Size;				// SDRAM ������SDRAM_SIZE_2MB��SDRAM_SIZE_8MB��SDRAM_SIZE_16MB��SDRAM_SIZE_32MB
-	uint8_t ClkDiv;				// SDRAM ʱ�ӷ�Ƶ��SDRAM_CLKDIV_1��SDRAM_CLKDIV_2
-	uint8_t CASLatency;			// �е�ַ����Ч������������SDRAM_CASLATENCY_2��SDRAM_CASLATENCY_3
+	uint8_t Size;				// SDRAM 容量，SDRAM_SIZE_2MB、SDRAM_SIZE_8MB、SDRAM_SIZE_16MB、SDRAM_SIZE_32MB
+	uint8_t ClkDiv;				// SDRAM 时钟分频，SDRAM_CLKDIV_1、SDRAM_CLKDIV_2
+	uint8_t CASLatency;			// 列地址到有效数据输出间隔，SDRAM_CASLATENCY_2、SDRAM_CASLATENCY_3
 	
-	uint8_t TimeTRP;			// Row precharge delay��Precharge�����һ���������ʱ
-	uint8_t TimeTRCD;			// Row to column delay���е�ַ���е�ַ����ʱ��Ҳ��Activate�����д�������ʱ
+	uint8_t TimeTRP;			// Row precharge delay，Precharge命令到另一个命令间延时
+	uint8_t TimeTRCD;			// Row to column delay，行地址到列地址间延时，也即Activate命令到读写命令间延时
 	uint8_t TimeTRFC;			// Refresh Cycle
 } SDRAM_InitStructure;
 
@@ -17,8 +17,8 @@ typedef struct {
 #define SDRAM_SIZE_16MB		1	// HADDR[23:12]    HADDR[11:10]    HADDR[9:1]
 #define SDRAM_SIZE_32MB		2	// HADDR[24:12]    HADDR[11:10]    HADDR[9:1]
 
-#define SDRAM_CLKDIV_1		0	// ֧�ֵ� CPU Ƶ�ʷ�Χ��80MHz--125MHz
-#define SDRAM_CLKDIV_2		1	// ֧�ֵ� CPU Ƶ�ʷ�Χ��20MHz--160Mhz
+#define SDRAM_CLKDIV_1		0	// 支持的 CPU 频率范围：80MHz--125MHz
+#define SDRAM_CLKDIV_2		1	// 支持的 CPU 频率范围：20MHz--160Mhz
 
 #define SDRAM_CASLATENCY_2	0
 #define SDRAM_CASLATENCY_3	1

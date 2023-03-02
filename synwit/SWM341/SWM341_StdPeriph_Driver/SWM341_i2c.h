@@ -3,17 +3,17 @@
 
 
 typedef struct {
-	uint8_t  Master;		//1 Ö÷»úÄ£Ê½    0 ´Ó»úÄ£Ê½
-	uint32_t MstClk;		//Ö÷»ú´«ÊäÊ±ÖÓÆµÂÊ
+	uint8_t  Master;		//1 ä¸»æœºæ¨¡å¼    0 ä»æœºæ¨¡å¼
+	uint32_t MstClk;		//ä¸»æœºä¼ è¾“æ—¶é’Ÿé¢‘ç‡
 	
-	uint8_t  Addr10b;		//1 10Î»µØÖ·Ä£Ê½     0 7Î»µØÖ·Ä£Ê½
-	uint16_t SlvAddr;		//´Ó»úµØÖ·
+	uint8_t  Addr10b;		//1 10ä½åœ°å€æ¨¡å¼     0 7ä½åœ°å€æ¨¡å¼
+	uint16_t SlvAddr;		//ä»æœºåœ°å€
 	uint16_t SlvAddrMsk;
 	
-	uint8_t  TXEmptyIEn;	//·¢ËÍ¼Ä´æÆ÷¿ÕÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  RXNotEmptyIEn;	//½ÓÊÕ¼Ä´æÆ÷·Ç¿ÕÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  SlvSTADetIEn;	//´Ó»ú¼ì²âµ½ÆğÊ¼ÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  SlvSTODetIEn;	//´Ó»ú¼ì²âµ½ÖÕÖ¹ÖĞ¶ÏÊ¹ÄÜ
+	uint8_t  TXEmptyIEn;	//å‘é€å¯„å­˜å™¨ç©ºä¸­æ–­ä½¿èƒ½
+	uint8_t  RXNotEmptyIEn;	//æ¥æ”¶å¯„å­˜å™¨éç©ºä¸­æ–­ä½¿èƒ½
+	uint8_t  SlvSTADetIEn;	//ä»æœºæ£€æµ‹åˆ°èµ·å§‹ä¸­æ–­ä½¿èƒ½
+	uint8_t  SlvSTODetIEn;	//ä»æœºæ£€æµ‹åˆ°ç»ˆæ­¢ä¸­æ–­ä½¿èƒ½
 } I2C_InitStructure;
 
 
@@ -21,12 +21,12 @@ typedef struct {
 #define I2C_IT_TX_EMPTY		(1 <<  0)	//TX FIFO Empty
 #define I2C_IT_RX_NOT_EMPTY	(1 <<  1)	//RX FIFO Not Empty
 #define I2C_IT_RX_OVF		(1 <<  2)	//RX FIFO Overflow
-#define I2C_IT_TX_DONE		(1 <<  3)	//·¢ËÍÍê³É£¨½ÓÊÕµ½ACK£©
-#define I2C_IT_RX_DONE		(1 <<  4)	//½ÓÊÕÍê³É£¨·¢ËÍ³öACK£©
-#define I2C_IT_SLV_DET_STA	(1 <<  8)	//´Ó»ú¼ì²âµ½ÆğÊ¼Î»
-#define I2C_IT_SLV_DET_STP	(1 <<  9)	//´Ó»ú¼ì²âµ½Í£Ö¹Î»
-#define I2C_IT_ARB_LOST		(1 << 16)	//Ö÷»úArbitration lost
-#define I2C_IT_SCL_LOW_TO	(1 << 17)	//Ö÷»úSCL Low Timeout
+#define I2C_IT_TX_DONE		(1 <<  3)	//å‘é€å®Œæˆï¼ˆæ¥æ”¶åˆ°ACKï¼‰
+#define I2C_IT_RX_DONE		(1 <<  4)	//æ¥æ”¶å®Œæˆï¼ˆå‘é€å‡ºACKï¼‰
+#define I2C_IT_SLV_DET_STA	(1 <<  8)	//ä»æœºæ£€æµ‹åˆ°èµ·å§‹ä½
+#define I2C_IT_SLV_DET_STP	(1 <<  9)	//ä»æœºæ£€æµ‹åˆ°åœæ­¢ä½
+#define I2C_IT_ARB_LOST		(1 << 16)	//ä¸»æœºArbitration lost
+#define I2C_IT_SCL_LOW_TO	(1 << 17)	//ä¸»æœºSCL Low Timeout
 
 
 void I2C_Init(I2C_TypeDef * I2Cx, I2C_InitStructure * initStruct);
@@ -45,9 +45,9 @@ uint8_t I2C_WriteDone(I2C_TypeDef * I2Cx);
 uint8_t I2C_ReadDone(I2C_TypeDef * I2Cx);
 uint8_t I2C_IsAck(I2C_TypeDef * I2Cx);
 
-void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it);		//ÖĞ¶ÏÊ¹ÄÜ
-void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it);		//ÖĞ¶Ï½ûÖ¹
-void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it);		//ÖĞ¶Ï±êÖ¾Çå³ı
-uint32_t I2C_INTStat(I2C_TypeDef * I2Cx, uint32_t it);	//ÖĞ¶Ï×´Ì¬²éÑ¯
+void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it);		//ä¸­æ–­ä½¿èƒ½
+void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it);		//ä¸­æ–­ç¦æ­¢
+void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it);		//ä¸­æ–­æ ‡å¿—æ¸…é™¤
+uint32_t I2C_INTStat(I2C_TypeDef * I2Cx, uint32_t it);	//ä¸­æ–­çŠ¶æ€æŸ¥è¯¢
 
 #endif //__SWM341_I2C_H__

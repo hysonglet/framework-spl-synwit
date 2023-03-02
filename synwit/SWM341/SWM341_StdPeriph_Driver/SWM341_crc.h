@@ -3,13 +3,13 @@
 
 
 typedef struct {
-	uint32_t init_crc;			// ³õÊ¼Öµ
-	uint8_t  Poly;				// CRC¶àÏîÊ½£¬¿ÉÈ¡ÖµCRC_POLY_11021¡¢CRC_POLY_107¡¢CRC_POLY_18005¡¢CRC_POLY_104C11DB7
-	uint8_t  in_width;			// ÊäÈëÊı¾İ¿í¶È£¬¿ÉÈ¡ÖµCRC_WIDTH_32¡¢CRC_WIDTH_16¡¢CRC_WIDTH_8
-	uint8_t  in_rev;			// ÊäÈëÊı¾İ·­×ª£¬¿ÉÈ¡ÖµCRC_REV_NOT¡¢CRC_REV_ALL¡¢CRC_REV_IN_BYTE¡¢CRC_REV_BYTE
-	bool     in_not;			// ÊäÈëÊı¾İÈ¡·´
-	uint8_t  out_rev;			// Êä³ö½á¹û·­×ª£¬¿ÉÈ¡ÖµCRC_REV_NOT¡¢CRC_REV_ALL¡¢CRC_REV_IN_BYTE¡¢CRC_REV_BYTE
-	bool     out_not;			// Êä³ö½á¹ûÈ¡·´
+	uint32_t init_crc;			// åˆå§‹å€¼
+	uint8_t  Poly;				// CRCå¤šé¡¹å¼ï¼Œå¯å–å€¼CRC_POLY_11021ã€CRC_POLY_107ã€CRC_POLY_18005ã€CRC_POLY_104C11DB7
+	uint8_t  in_width;			// è¾“å…¥æ•°æ®å®½åº¦ï¼Œå¯å–å€¼CRC_WIDTH_32ã€CRC_WIDTH_16ã€CRC_WIDTH_8
+	uint8_t  in_rev;			// è¾“å…¥æ•°æ®ç¿»è½¬ï¼Œå¯å–å€¼CRC_REV_NOTã€CRC_REV_ALLã€CRC_REV_IN_BYTEã€CRC_REV_BYTE
+	bool     in_not;			// è¾“å…¥æ•°æ®å–å
+	uint8_t  out_rev;			// è¾“å‡ºç»“æœç¿»è½¬ï¼Œå¯å–å€¼CRC_REV_NOTã€CRC_REV_ALLã€CRC_REV_IN_BYTEã€CRC_REV_BYTE
+	bool     out_not;			// è¾“å‡ºç»“æœå–å
 } CRC_InitStructure;
 
 
@@ -22,10 +22,10 @@ typedef struct {
 #define CRC_WIDTH_16		1
 #define CRC_WIDTH_8			2
 
-#define CRC_REV_NOT			0	// bitË³Ğò²»±ä
-#define CRC_REV_ALL			1	// bitË³ĞòÍêÈ«·­×ª
-#define CRC_REV_IN_BYTE		2	// bitË³Ğò×Ö½ÚÄÚ·­×ª
-#define CRC_REV_BYTE		3	// ½ö×Ö½ÚË³Ğò·­×ª
+#define CRC_REV_NOT			0	// bité¡ºåºä¸å˜
+#define CRC_REV_ALL			1	// bité¡ºåºå®Œå…¨ç¿»è½¬
+#define CRC_REV_IN_BYTE		2	// bité¡ºåºå­—èŠ‚å†…ç¿»è½¬
+#define CRC_REV_BYTE		3	// ä»…å­—èŠ‚é¡ºåºç¿»è½¬
 
 
 void CRC_Init(CRC_TypeDef * CRCx, CRC_InitStructure * initStruct);
@@ -33,11 +33,11 @@ void CRC_SetInitVal(CRC_TypeDef * CRCx, uint32_t init_crc);
 
 
 /****************************************************************************************************************************************** 
-* º¯ÊıÃû³Æ:	CRC_Write()
-* ¹¦ÄÜËµÃ÷:	CRCĞ´ÈëÊı¾İ
-* Êä    Èë: uint32_t data		ÒªĞ´ÈëµÄÊı¾İ
-* Êä    ³ö: ÎŞ
-* ×¢ÒâÊÂÏî: ÎŞ
+* å‡½æ•°åç§°:	CRC_Write()
+* åŠŸèƒ½è¯´æ˜:	CRCå†™å…¥æ•°æ®
+* è¾“    å…¥: uint32_t data		è¦å†™å…¥çš„æ•°æ®
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 static __INLINE void CRC_Write(uint32_t data)
 {
@@ -45,11 +45,11 @@ static __INLINE void CRC_Write(uint32_t data)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊıÃû³Æ:	CRC_Result()
-* ¹¦ÄÜËµÃ÷:	»ñÈ¡CRC¼ÆËã½á¹û
-* Êä    Èë: ÎŞ
-* Êä    ³ö: uint32_t			CRC ¼ÆËã½á¹û
-* ×¢ÒâÊÂÏî: ÎŞ
+* å‡½æ•°åç§°:	CRC_Result()
+* åŠŸèƒ½è¯´æ˜:	è·å–CRCè®¡ç®—ç»“æœ
+* è¾“    å…¥: æ— 
+* è¾“    å‡º: uint32_t			CRC è®¡ç®—ç»“æœ
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 static __INLINE uint32_t CRC_Result(void)
 {

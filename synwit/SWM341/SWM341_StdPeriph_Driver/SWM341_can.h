@@ -3,20 +3,20 @@
 
 
 typedef struct {
-	uint8_t  Mode;				//CAN_MODE_NORMAL¡¢CAN_MODE_LISTEN¡¢CAN_MODE_SELFTEST
-	uint8_t  CAN_bs1;			//CAN_BS1_1tq¡¢CAN_BS1_2tq¡¢... ... ¡¢CAN_BS1_16tq
-	uint8_t  CAN_bs2;			//CAN_BS2_1tq¡¢CAN_BS2_2tq¡¢... ... ¡¢CAN_BS2_8tq
-	uint8_t  CAN_sjw;			//CAN_SJW_1tq¡¢CAN_SJW_2tq¡¢CAN_SJW_3tq¡¢CAN_SJW_4tq
-	uint32_t Baudrate;			//²¨ÌØÂÊ£¬¼´Î»´«ÊäËÙÂÊ£¬È¡Öµ1--1000000
-	uint8_t  RXNotEmptyIEn;		//½ÓÊÕFIFO·Ç¿Õ£¬ÓĞÊı¾İ¿É¶Á
-	uint8_t  ArbitrLostIEn;		//¿ØÖÆÆ÷¶ªÊ§ÖÙ²Ã±ä³É½ÓÊÕ·½
-	uint8_t  ErrPassiveIEn;		//½ÓÊÕ/·¢ËÍ´íÎó¼ÆÊıÖµ´ïµ½127
+	uint8_t  Mode;				//CAN_MODE_NORMALã€CAN_MODE_LISTENã€CAN_MODE_SELFTEST
+	uint8_t  CAN_bs1;			//CAN_BS1_1tqã€CAN_BS1_2tqã€... ... ã€CAN_BS1_16tq
+	uint8_t  CAN_bs2;			//CAN_BS2_1tqã€CAN_BS2_2tqã€... ... ã€CAN_BS2_8tq
+	uint8_t  CAN_sjw;			//CAN_SJW_1tqã€CAN_SJW_2tqã€CAN_SJW_3tqã€CAN_SJW_4tq
+	uint32_t Baudrate;			//æ³¢ç‰¹ç‡ï¼Œå³ä½ä¼ è¾“é€Ÿç‡ï¼Œå–å€¼1--1000000
+	uint8_t  RXNotEmptyIEn;		//æ¥æ”¶FIFOéç©ºï¼Œæœ‰æ•°æ®å¯è¯»
+	uint8_t  ArbitrLostIEn;		//æ§åˆ¶å™¨ä¸¢å¤±ä»²è£å˜æˆæ¥æ”¶æ–¹
+	uint8_t  ErrPassiveIEn;		//æ¥æ”¶/å‘é€é”™è¯¯è®¡æ•°å€¼è¾¾åˆ°127
 } CAN_InitStructure;
 
 
-#define CAN_MODE_NORMAL		0	//³£¹æÄ£Ê½
-#define CAN_MODE_LISTEN		1	//¼àÌıÄ£Ê½
-#define CAN_MODE_SELFTEST	2	//×Ô²âÄ£Ê½
+#define CAN_MODE_NORMAL		0	//å¸¸è§„æ¨¡å¼
+#define CAN_MODE_LISTEN		1	//ç›‘å¬æ¨¡å¼
+#define CAN_MODE_SELFTEST	2	//è‡ªæµ‹æ¨¡å¼
 
 #define CAN_BS1_1tq			0
 #define CAN_BS1_2tq			1
@@ -76,18 +76,18 @@ typedef struct {
 #define CAN_IT_TX_EMPTY		(0x01 << 1)		//TX Buffer Empty
 #define CAN_IT_ARBLOST		(0x01 << 6)		//Arbitration lost
 #define CAN_IT_ERR			(0x01 << 7)
-#define CAN_IT_ERR_WARN		(0x01 << 2)		//TXERR/RXERR¼ÆÊıÖµ´ïµ½Error Warning Limit
-#define CAN_IT_ERR_PASS		(0x01 << 5)		//TXERR/RXERR¼ÆÊıÖµ´ïµ½127
+#define CAN_IT_ERR_WARN		(0x01 << 2)		//TXERR/RXERRè®¡æ•°å€¼è¾¾åˆ°Error Warning Limit
+#define CAN_IT_ERR_PASS		(0x01 << 5)		//TXERR/RXERRè®¡æ•°å€¼è¾¾åˆ°127
 #define CAN_IT_WAKEUP		(0x01 << 4)
 
 
 
 typedef struct {
-	uint32_t id;		//ÏûÏ¢ID
-	uint8_t  format;	//Ö¡¸ñÊ½£ºCAN_FRAME_STD¡¢CAN_FRAME_EXT
-	uint8_t  remote;	//ÏûÏ¢ÊÇ·ñÎªÔ¶³ÌÖ¡
-	uint8_t  size;		//½ÓÊÕµ½µÄÊı¾İ¸öÊı
-	uint8_t  data[8];	//½ÓÊÕµ½µÄÊı¾İ
+	uint32_t id;		//æ¶ˆæ¯ID
+	uint8_t  format;	//å¸§æ ¼å¼ï¼šCAN_FRAME_STDã€CAN_FRAME_EXT
+	uint8_t  remote;	//æ¶ˆæ¯æ˜¯å¦ä¸ºè¿œç¨‹å¸§
+	uint8_t  size;		//æ¥æ”¶åˆ°çš„æ•°æ®ä¸ªæ•°
+	uint8_t  data[8];	//æ¥æ”¶åˆ°çš„æ•°æ®
 } CAN_RXMessage;
 
 

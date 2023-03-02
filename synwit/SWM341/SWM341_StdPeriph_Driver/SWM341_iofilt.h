@@ -2,7 +2,7 @@
 #define __SWM341_IOFILT_H__
 
 
-/* ѡ����ĸ��źŽ����˲� */
+/* 选择对哪个信号进行滤波 */
 #define IOFILT0_PB5		0
 #define IOFILT0_PB4		1
 #define IOFILT0_PB3		2

@@ -2,23 +2,23 @@
 #define __SWM341_TIMR_H__
 
 #define TIMR_MODE_TIMER		((0 << 2) | 0)
-#define TIMR_MODE_IC		((1 << 2) | 0)	//ÊäÈë²¶»ñ
-#define TIMR_MODE_OC		((2 << 2) | 0)	//Êä³ö±È½Ï
-#define TIMR_MODE_COUNTER	((0 << 2) | 2)	//¼ÆÊýÉÏÉýÑØ
+#define TIMR_MODE_IC		((1 << 2) | 0)	//è¾“å…¥æ•èŽ·
+#define TIMR_MODE_OC		((2 << 2) | 0)	//è¾“å‡ºæ¯”è¾ƒ
+#define TIMR_MODE_COUNTER	((0 << 2) | 2)	//è®¡æ•°ä¸Šå‡æ²¿
 
 
-void TIMR_Init(TIMR_TypeDef * TIMRx, uint32_t mode, uint16_t prediv, uint32_t period, uint32_t int_en);	//¶¨Ê±Æ÷/¼ÆÊýÆ÷³õÊ¼»¯
-void TIMR_Start(TIMR_TypeDef * TIMRx);							//Æô¶¯¶¨Ê±Æ÷£¬´Ó³õÊ¼Öµ¿ªÊ¼¼ÆÊ±/¼ÆÊý
-void TIMR_Stop(TIMR_TypeDef * TIMRx);							//Í£Ö¹¶¨Ê±Æ÷
-void TIMR_Halt(TIMR_TypeDef * TIMRx);							//ÔÝÍ£¶¨Ê±Æ÷£¬¼ÆÊýÖµ±£³Ö²»±ä
-void TIMR_Resume(TIMR_TypeDef * TIMRx);							//»Ö¸´¶¨Ê±Æ÷£¬´ÓÔÝÍ£´¦¼ÌÐø¼ÆÊý
+void TIMR_Init(TIMR_TypeDef * TIMRx, uint32_t mode, uint16_t prediv, uint32_t period, uint32_t int_en);	//å®šæ—¶å™¨/è®¡æ•°å™¨åˆå§‹åŒ–
+void TIMR_Start(TIMR_TypeDef * TIMRx);							//å¯åŠ¨å®šæ—¶å™¨ï¼Œä»Žåˆå§‹å€¼å¼€å§‹è®¡æ—¶/è®¡æ•°
+void TIMR_Stop(TIMR_TypeDef * TIMRx);							//åœæ­¢å®šæ—¶å™¨
+void TIMR_Halt(TIMR_TypeDef * TIMRx);							//æš‚åœå®šæ—¶å™¨ï¼Œè®¡æ•°å€¼ä¿æŒä¸å˜
+void TIMR_Resume(TIMR_TypeDef * TIMRx);							//æ¢å¤å®šæ—¶å™¨ï¼Œä»Žæš‚åœå¤„ç»§ç»­è®¡æ•°
 
-uint32_t TIMR_GetCurValue(TIMR_TypeDef * TIMRx);				//»ñÈ¡µ±Ç°¼ÆÊýÖµ
+uint32_t TIMR_GetCurValue(TIMR_TypeDef * TIMRx);				//èŽ·å–å½“å‰è®¡æ•°å€¼
 
-void TIMR_INTEn(TIMR_TypeDef * TIMRx);							//Ê¹ÄÜÖÐ¶Ï
-void TIMR_INTDis(TIMR_TypeDef * TIMRx);							//½ûÄÜÖÐ¶Ï
-void TIMR_INTClr(TIMR_TypeDef * TIMRx);							//Çå³ýÖÐ¶Ï±êÖ¾
-uint32_t TIMR_INTStat(TIMR_TypeDef * TIMRx);					//»ñÈ¡ÖÐ¶Ï×´Ì¬
+void TIMR_INTEn(TIMR_TypeDef * TIMRx);							//ä½¿èƒ½ä¸­æ–­
+void TIMR_INTDis(TIMR_TypeDef * TIMRx);							//ç¦èƒ½ä¸­æ–­
+void TIMR_INTClr(TIMR_TypeDef * TIMRx);							//æ¸…é™¤ä¸­æ–­æ ‡å¿—
+uint32_t TIMR_INTStat(TIMR_TypeDef * TIMRx);					//èŽ·å–ä¸­æ–­çŠ¶æ€
 
 
 void TIMR_OC_Init(TIMR_TypeDef * TIMRx, uint32_t match, uint32_t match_int_en, uint32_t init_lvl);

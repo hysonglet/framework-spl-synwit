@@ -1,10 +1,10 @@
 /****************************************************************************************************************************************** 
-* ÎÄ¼þÃû³Æ: SWM341_sdram.c
-* ¹¦ÄÜËµÃ÷:	SWM341µ¥Æ¬»úµÄSDRAMÇý¶¯³ÌÐò
-* ¼¼ÊõÖ§³Ö:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
-* ×¢ÒâÊÂÏî:
-* °æ±¾ÈÕÆÚ: V1.1.0		2017Äê10ÔÂ25ÈÕ
-* Éý¼¶¼ÇÂ¼: 
+* æ–‡ä»¶åç§°: SWM341_sdram.c
+* åŠŸèƒ½è¯´æ˜Ž:	SWM341å•ç‰‡æœºçš„SDRAMé©±åŠ¨ç¨‹åº
+* æŠ€æœ¯æ”¯æŒ:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
+* æ³¨æ„äº‹é¡¹:
+* ç‰ˆæœ¬æ—¥æœŸ: V1.1.0		2017å¹´10æœˆ25æ—¥
+* å‡çº§è®°å½•: 
 *
 *
 *******************************************************************************************************************************************
@@ -22,15 +22,15 @@
 #include "SWM341_sdram.h"
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	SDRAM_Init()
-* ¹¦ÄÜËµÃ÷:	SDRAM¿ØÖÆÆ÷³õÊ¼»¯
-* Êä    Èë: SDRAM_InitStructure * initStruct    °üº¬ SDRAM ¿ØÖÆÆ÷Ïà¹ØÉè¶¨ÖµµÄ½á¹¹Ìå
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	SDRAM_Init()
+* åŠŸèƒ½è¯´æ˜Ž:	SDRAMæŽ§åˆ¶å™¨åˆå§‹åŒ–
+* è¾“    å…¥: SDRAM_InitStructure * initStruct    åŒ…å« SDRAM æŽ§åˆ¶å™¨ç›¸å…³è®¾å®šå€¼çš„ç»“æž„ä½“
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void SDRAM_Init(SDRAM_InitStructure * initStruct)
 {
-	uint32_t cyclesPerUs = CyclesPerUs / (initStruct->ClkDiv + 1);	// 1usÓÐ¶àÉÙ¸öSDRAM_CLKÖÜÆÚ
+	uint32_t cyclesPerUs = CyclesPerUs / (initStruct->ClkDiv + 1);	// 1usæœ‰å¤šå°‘ä¸ªSDRAM_CLKå‘¨æœŸ
 	uint32_t row_n;
 	
 	SYS->CLKEN1 |= (1 << SYS_CLKEN1_SDRAM_Pos);
@@ -38,7 +38,7 @@ void SDRAM_Init(SDRAM_InitStructure * initStruct)
 	SDRAMC->TIM = (initStruct->TimeTRP  << SDRAMC_TIM_TRP_Pos) |
 				  (initStruct->TimeTRCD << SDRAMC_TIM_TRCD_Pos) |
 				  (initStruct->TimeTRFC << SDRAMC_TIM_TRFC_Pos) |
-				  ((cyclesPerUs * 200)  << SDRAMC_TIM_T100US_Pos);	// ÒªÇó´óÓÚ100us
+				  ((cyclesPerUs * 200)  << SDRAMC_TIM_T100US_Pos);	// è¦æ±‚å¤§äºŽ100us
 	
 	SDRAMC->CFG = (initStruct->Size       << SDRAMC_CFG_SIZE_Pos)     |
 				  (initStruct->ClkDiv     << SDRAMC_CFG_CLKDIV_Pos)   |
@@ -58,16 +58,16 @@ void SDRAM_Init(SDRAM_InitStructure * initStruct)
 	
 	SDRAMC->CR = (1 << SDRAMC_CR_PWRON_Pos);
 	
-    while(SDRAMC->CR & SDRAMC_CR_PWRON_Msk) __NOP();	//µÈ´ý³õÊ¼Íê³É
+    while(SDRAMC->CR & SDRAMC_CR_PWRON_Msk) __NOP();	//ç­‰å¾…åˆå§‹å®Œæˆ
 }
 
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	SDRAM_Enable()
-* ¹¦ÄÜËµÃ÷:	SDRAMÊ¹ÄÜ£¬Ê¹ÄÜºó¿É¶ÁÐ´SDRAM
-* Êä    Èë: ÎÞ
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	SDRAM_Enable()
+* åŠŸèƒ½è¯´æ˜Ž:	SDRAMä½¿èƒ½ï¼Œä½¿èƒ½åŽå¯è¯»å†™SDRAM
+* è¾“    å…¥: æ— 
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void SDRAM_Enable(void)
 {
@@ -77,11 +77,11 @@ void SDRAM_Enable(void)
 }
 
 /****************************************************************************************************************************************** 
-* º¯ÊýÃû³Æ:	SDRAM_Disable()
-* ¹¦ÄÜËµÃ÷:	SDRAM½ûÄÜ£¬½ûÄÜºóSDRAM¿ÅÁ£½øÈëµÍ¹¦ºÄÄ£Ê½¡¢²¢×ÔË¢ÐÂ£¬²»¿É¶ÁÐ´
-* Êä    Èë: ÎÞ
-* Êä    ³ö: ÎÞ
-* ×¢ÒâÊÂÏî: ÎÞ
+* å‡½æ•°åç§°:	SDRAM_Disable()
+* åŠŸèƒ½è¯´æ˜Ž:	SDRAMç¦èƒ½ï¼Œç¦èƒ½åŽSDRAMé¢—ç²’è¿›å…¥ä½ŽåŠŸè€—æ¨¡å¼ã€å¹¶è‡ªåˆ·æ–°ï¼Œä¸å¯è¯»å†™
+* è¾“    å…¥: æ— 
+* è¾“    å‡º: æ— 
+* æ³¨æ„äº‹é¡¹: æ— 
 ******************************************************************************************************************************************/
 void SDRAM_Disable(void)
 {

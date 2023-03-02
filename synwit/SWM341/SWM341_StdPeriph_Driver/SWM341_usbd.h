@@ -8,8 +8,8 @@ typedef void (*USBD_ClassRequest_Callback)(USB_Setup_Packet_t * pSetup);
 typedef void (*USBD_VendorRequest_Callback)(USB_Setup_Packet_t * pSetup);
 
 typedef struct {
-	uint8_t  Mode;				// USBD_MODE_DEV¡¢USBD_MODE_OTG
-	uint8_t  Speed;				// USBD_SPEED_LS¡¢USBD_SPEED_FS
+	uint8_t  Mode;				// USBD_MODE_DEVã€USBD_MODE_OTG
+	uint8_t  Speed;				// USBD_SPEED_LSã€USBD_SPEED_FS
 	uint8_t  CtrlPkSiz;			// Control Endpoint Packet Size
 	
 	uint8_t  *DescDevice;
@@ -22,8 +22,8 @@ typedef struct {
 	uint8_t  *DescBOS;			// BOS descriptor
 	
 	/* HID */
-	uint16_t *DescHIDOffset;	// HIDÃèÊö·ûÔÚDescConfigÖÐµÄÆ«ÒÆ
-	uint8_t **DescHIDReport;	// HID±¨¸æÃèÊö·û
+	uint16_t *DescHIDOffset;	// HIDæè¿°ç¬¦åœ¨DescConfigä¸­çš„åç§»
+	uint8_t **DescHIDReport;	// HIDæŠ¥å‘Šæè¿°ç¬¦
     
 	/* WINUSB */
 	uint8_t  *DescOSString;		// Microsoft OS String Descriptor
@@ -33,7 +33,7 @@ extern USBD_Info_t USBD_Info;
 
 
 #define USBD_MODE_DEV	3		// Device only
-#define USBD_MODE_OTG	0		// OTG, Ö÷»úÄ£Ê½»¹ÊÇ´Ó»úÄ£Ê½ÓÉUSB IDÏß¾ö¶¨
+#define USBD_MODE_OTG	0		// OTG, ä¸»æœºæ¨¡å¼è¿˜æ˜¯ä»Žæœºæ¨¡å¼ç”±USB IDçº¿å†³å®š
 
 #define USBD_SPEED_LS	2
 #define USBD_SPEED_FS	3
@@ -64,7 +64,7 @@ static __INLINE void USBD_Stall0(void)
 	USBD_RxStall(0);
 }
 
-/* ×¢Òâ£ºÒòÎªÒª¶Á TXSR.DATSNT Î»£¬Òò´Ë±ØÐëÔÚ USBD_TxIntClr() Ö®Ç°µ÷ÓÃ */
+/* æ³¨æ„ï¼šå› ä¸ºè¦è¯» TXSR.DATSNT ä½ï¼Œå› æ­¤å¿…é¡»åœ¨ USBD_TxIntClr() ä¹‹å‰è°ƒç”¨ */
 static __INLINE bool USBD_TxSuccess(uint8_t epnr)
 {
 	uint32_t sr = USBD->INEP[epnr].TXSR;

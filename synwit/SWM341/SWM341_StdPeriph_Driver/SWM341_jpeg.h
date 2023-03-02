@@ -5,13 +5,13 @@
 
 
 typedef struct {
-	uint8_t  DoneIEn;			// ½âÂëÍê³ÉÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  ErrorIEn;			// ½âÂë³ö´íÖĞ¶ÏÊ¹ÄÜ
+	uint8_t  DoneIEn;			// è§£ç å®Œæˆä¸­æ–­ä½¿èƒ½
+	uint8_t  ErrorIEn;			// è§£ç å‡ºé”™ä¸­æ–­ä½¿èƒ½
 } JPEG_InitStructure;
 
 
 typedef struct {
-	uint8_t  format;			// ½âÂëÊä³ö¸ñÊ½£¬¿ÉÈ¡ÖµJPEG_OUT_YUV¡¢JPEG_OUT_YUVsp¡¢JPEG_OUT_XRGB888¡¢...
+	uint8_t  format;			// è§£ç è¾“å‡ºæ ¼å¼ï¼Œå¯å–å€¼JPEG_OUT_YUVã€JPEG_OUT_YUVspã€JPEG_OUT_XRGB888ã€...
 	
 	/* for RGB output */
 	uint8_t  dither;			// RGB565 dithering enable
@@ -52,12 +52,12 @@ typedef struct {
 	uint16_t Height;
 	
 	struct {
-		uint8_t id;				// 1£ºY   2£ºCb   3£ºCr
-		uint8_t hfactor;		// ÑÕÉ«·ÖÁ¿Ë®Æ½²ÉÑùÒò×Ó
-		uint8_t vfactor;		// ÑÕÉ«·ÖÁ¿´¹Ö±²ÉÑùÒò×Ó
-		uint8_t qtab_id;		// ÑÕÉ«·ÖÁ¿Ê¹ÓÃµÄÁ¿»¯±íID
-		uint8_t htab_id_dc;		// Ö±Á÷·ÖÁ¿Ê¹ÓÃµÄ»ô·òÂü±íID
-		uint8_t htab_id_ac;		// ½»Á÷·ÖÁ¿Ê¹ÓÃµÄ»ô·òÂü±íID
+		uint8_t id;				// 1ï¼šY   2ï¼šCb   3ï¼šCr
+		uint8_t hfactor;		// é¢œè‰²åˆ†é‡æ°´å¹³é‡‡æ ·å› å­
+		uint8_t vfactor;		// é¢œè‰²åˆ†é‡å‚ç›´é‡‡æ ·å› å­
+		uint8_t qtab_id;		// é¢œè‰²åˆ†é‡ä½¿ç”¨çš„é‡åŒ–è¡¨ID
+		uint8_t htab_id_dc;		// ç›´æµåˆ†é‡ä½¿ç”¨çš„éœå¤«æ›¼è¡¨ID
+		uint8_t htab_id_ac;		// äº¤æµåˆ†é‡ä½¿ç”¨çš„éœå¤«æ›¼è¡¨ID
 	} CompInfo[3];				// Component Information
 	uint8_t CompCnt;
 	
@@ -79,7 +79,7 @@ typedef struct {
 	} HTable[JFIF_HTAB_MAX];
 	uint8_t HTableCnt;
 	
-	uint32_t CodeAddr;			// ´ı½âÂëÊı¾İ
+	uint32_t CodeAddr;			// å¾…è§£ç æ•°æ®
 	uint32_t CodeLen;
 } jfif_info_t;
 

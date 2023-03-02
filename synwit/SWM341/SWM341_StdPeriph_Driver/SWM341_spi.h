@@ -2,31 +2,31 @@
 #define __SWM341_SPI_H__
 
 typedef struct {
-	uint8_t  FrameFormat;	//Ö¡¸ñÊ½£ºSPI_FORMAT_SPI¡¢SPI_FORMAT_TI_SSI
-	uint8_t  SampleEdge;	//ÔÚSPIÖ¡¸ñÊ½ÏÂ£¬Ñ¡ÔñÊı¾İ²ÉÑù±ßÑØ£ºSPI_FIRST_EDGE¡¢SPI_SECOND_EDGE
-	uint8_t  IdleLevel;		//ÔÚSPIÖ¡¸ñÊ½ÏÂ£¬Ñ¡Ôñ¿ÕÏĞÊ±£¨ÎŞÊı¾İ´«ÊäÊ±£©Ê±ÖÓÏßµÄµçÆ½£ºSPI_LOW_LEVEL¡¢SPI_HIGH_LEVEL
-	uint8_t  WordSize;		//×Ö³¤¶È, ÓĞĞ§Öµ4-16
-	uint8_t  Master;		//1 Ö÷»úÄ£Ê½    0 ´Ó»úÄ£Ê½
-	uint8_t  clkDiv;		//SPI_CLK = SYS_CLK / clkDiv£¬ÓĞĞ§Öµ£ºSPI_CLKDIV_4¡¢SPI_CLKDIV_8¡¢... ... ¡¢SPI_CLKDIV_512
+	uint8_t  FrameFormat;	//å¸§æ ¼å¼ï¼šSPI_FORMAT_SPIã€SPI_FORMAT_TI_SSI
+	uint8_t  SampleEdge;	//åœ¨SPIå¸§æ ¼å¼ä¸‹ï¼Œé€‰æ‹©æ•°æ®é‡‡æ ·è¾¹æ²¿ï¼šSPI_FIRST_EDGEã€SPI_SECOND_EDGE
+	uint8_t  IdleLevel;		//åœ¨SPIå¸§æ ¼å¼ä¸‹ï¼Œé€‰æ‹©ç©ºé—²æ—¶ï¼ˆæ— æ•°æ®ä¼ è¾“æ—¶ï¼‰æ—¶é’Ÿçº¿çš„ç”µå¹³ï¼šSPI_LOW_LEVELã€SPI_HIGH_LEVEL
+	uint8_t  WordSize;		//å­—é•¿åº¦, æœ‰æ•ˆå€¼4-16
+	uint8_t  Master;		//1 ä¸»æœºæ¨¡å¼    0 ä»æœºæ¨¡å¼
+	uint8_t  clkDiv;		//SPI_CLK = SYS_CLK / clkDivï¼Œæœ‰æ•ˆå€¼ï¼šSPI_CLKDIV_4ã€SPI_CLKDIV_8ã€... ... ã€SPI_CLKDIV_512
 	
-	uint8_t  RXThreshold;	//È¡Öµ1--8
-	uint8_t  RXThresholdIEn;//µ±RX FIFOÖĞÊı¾İ¸öÊı >= RXThresholdÊ±´¥·¢ÖĞ¶Ï
+	uint8_t  RXThreshold;	//å–å€¼1--8
+	uint8_t  RXThresholdIEn;//å½“RX FIFOä¸­æ•°æ®ä¸ªæ•° >= RXThresholdæ—¶è§¦å‘ä¸­æ–­
 	
-	uint8_t  TXThreshold;	//È¡Öµ0--7
-	uint8_t  TXThresholdIEn;//µ±TX FIFOÖĞÊı¾İ¸öÊı <= TXThresholdÊ±´¥·¢ÖĞ¶Ï
+	uint8_t  TXThreshold;	//å–å€¼0--7
+	uint8_t  TXThresholdIEn;//å½“TX FIFOä¸­æ•°æ®ä¸ªæ•° <= TXThresholdæ—¶è§¦å‘ä¸­æ–­
 	
-	uint8_t  TXCompleteIEn;	//·¢ËÍFIFO¿ÕÇÒ·¢ËÍÒÆÎ»¼Ä´æÆ÷¿ÕÖĞ¶ÏÊ¹ÄÜ
+	uint8_t  TXCompleteIEn;	//å‘é€FIFOç©ºä¸”å‘é€ç§»ä½å¯„å­˜å™¨ç©ºä¸­æ–­ä½¿èƒ½
 } SPI_InitStructure;
 
-#define SPI_FORMAT_SPI			0		//Motorola SPI ¸ñÊ½
-#define SPI_FORMAT_TI_SSI		1		//TI SSI ¸ñÊ½
+#define SPI_FORMAT_SPI			0		//Motorola SPI æ ¼å¼
+#define SPI_FORMAT_TI_SSI		1		//TI SSI æ ¼å¼
 #define SPI_FORMAT_I2S			2
 
-#define SPI_FIRST_EDGE			0		//µÚÒ»¸öÊ±ÖÓÑØ¿ªÊ¼²ÉÑù
-#define SPI_SECOND_EDGE			1		//µÚ¶ş¸öÊ±ÖÓÑØ¿ªÊ¼²ÉÑù
+#define SPI_FIRST_EDGE			0		//ç¬¬ä¸€ä¸ªæ—¶é’Ÿæ²¿å¼€å§‹é‡‡æ ·
+#define SPI_SECOND_EDGE			1		//ç¬¬äºŒä¸ªæ—¶é’Ÿæ²¿å¼€å§‹é‡‡æ ·
 
-#define SPI_LOW_LEVEL			0		//¿ÕÏĞÊ±Ê±ÖÓÏß±£³ÖµÍµçÆ½
-#define SPI_HIGH_LEVEL			1		//¿ÕÏĞÊ±Ê±ÖÓÏß±£³Ö¸ßµçÆ½
+#define SPI_LOW_LEVEL			0		//ç©ºé—²æ—¶æ—¶é’Ÿçº¿ä¿æŒä½ç”µå¹³
+#define SPI_HIGH_LEVEL			1		//ç©ºé—²æ—¶æ—¶é’Ÿçº¿ä¿æŒé«˜ç”µå¹³
 
 #define SPI_CLKDIV_2			8
 #define SPI_CLKDIV_4			0
@@ -45,49 +45,49 @@ typedef struct {
 #define SPI_IT_RX_HFULL		(1 << 2)	//RX FIFO Half Full
 #define SPI_IT_TX_EMPTY		(1 << 3)	//TX FIFO Empty
 #define SPI_IT_TX_HFULL		(1 << 4)	//TX FIFO Half Full
-#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold£¨½ÓÊÕFIFOÖĞÊı¾İ¸öÊı´óÓÚCTRL.RFTHRÉè¶¨Öµ£©
-#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold£¨·¢ËÍFIFOÖĞÊı¾İ¸öÊıĞ¡ÓÚCTRL.TFTHRÉè¶¨Öµ£©
-#define SPI_IT_TX_DONE		(1 << 9)	//TX Done£¨·¢ËÍFIFO¿ÕÇÒ·¢ËÍÒÆÎ»¼Ä´æÆ÷¿Õ£©
-#define SPI_IT_CS_FALL		(1 << 10)	//´Ó»úÄ£Ê½ÏÂ£¬CSÏÂ½µÑØÖĞ¶Ï
-#define SPI_IT_CS_RISE		(1 << 11)	//´Ó»úÄ£Ê½ÏÂ£¬CSÉÏÉıÑØÖĞ¶Ï
+#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Thresholdï¼ˆæ¥æ”¶FIFOä¸­æ•°æ®ä¸ªæ•°å¤§äºCTRL.RFTHRè®¾å®šå€¼ï¼‰
+#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Thresholdï¼ˆå‘é€FIFOä¸­æ•°æ®ä¸ªæ•°å°äºCTRL.TFTHRè®¾å®šå€¼ï¼‰
+#define SPI_IT_TX_DONE		(1 << 9)	//TX Doneï¼ˆå‘é€FIFOç©ºä¸”å‘é€ç§»ä½å¯„å­˜å™¨ç©ºï¼‰
+#define SPI_IT_CS_FALL		(1 << 10)	//ä»æœºæ¨¡å¼ä¸‹ï¼ŒCSä¸‹é™æ²¿ä¸­æ–­
+#define SPI_IT_CS_RISE		(1 << 11)	//ä»æœºæ¨¡å¼ä¸‹ï¼ŒCSä¸Šå‡æ²¿ä¸­æ–­
 
 
-void SPI_Init(SPI_TypeDef * SPIx, SPI_InitStructure * initStruct);		//SPI³õÊ¼»¯
-void SPI_Open(SPI_TypeDef * SPIx);										//SPI´ò¿ª£¬ÔÊĞíÊÕ·¢
-void SPI_Close(SPI_TypeDef * SPIx);										//SPI¹Ø±Õ£¬½ûÖ¹ÊÕ·¢
+void SPI_Init(SPI_TypeDef * SPIx, SPI_InitStructure * initStruct);		//SPIåˆå§‹åŒ–
+void SPI_Open(SPI_TypeDef * SPIx);										//SPIæ‰“å¼€ï¼Œå…è®¸æ”¶å‘
+void SPI_Close(SPI_TypeDef * SPIx);										//SPIå…³é—­ï¼Œç¦æ­¢æ”¶å‘
 
 uint32_t SPI_Read(SPI_TypeDef * SPIx);
 void SPI_Write(SPI_TypeDef * SPIx, uint32_t data);
 void SPI_WriteWithWait(SPI_TypeDef * SPIx, uint32_t data);
 uint32_t SPI_ReadWrite(SPI_TypeDef * SPIx, uint32_t data);
 
-uint32_t SPI_IsRXEmpty(SPI_TypeDef * SPIx);				//½ÓÊÕFIFOÊÇ·ñ¿Õ£¬Èç¹û²»¿ÕÔò¿ÉÒÔ¼ÌĞøSPI_Read()
-uint32_t SPI_IsTXFull(SPI_TypeDef * SPIx);				//·¢ËÍFIFOÊÇ·ñÂú£¬Èç¹û²»ÂúÔò¿ÉÒÔ¼ÌĞøSPI_Write()
-uint32_t SPI_IsTXEmpty(SPI_TypeDef * SPIx);				//·¢ËÍFIFOÊÇ·ñ¿Õ
+uint32_t SPI_IsRXEmpty(SPI_TypeDef * SPIx);				//æ¥æ”¶FIFOæ˜¯å¦ç©ºï¼Œå¦‚æœä¸ç©ºåˆ™å¯ä»¥ç»§ç»­SPI_Read()
+uint32_t SPI_IsTXFull(SPI_TypeDef * SPIx);				//å‘é€FIFOæ˜¯å¦æ»¡ï¼Œå¦‚æœä¸æ»¡åˆ™å¯ä»¥ç»§ç»­SPI_Write()
+uint32_t SPI_IsTXEmpty(SPI_TypeDef * SPIx);				//å‘é€FIFOæ˜¯å¦ç©º
 
 
-void SPI_INTEn(SPI_TypeDef * SPIx, uint32_t it);		//ÖĞ¶ÏÊ¹ÄÜ
-void SPI_INTDis(SPI_TypeDef * SPIx, uint32_t it);		//ÖĞ¶Ï½ûÖ¹
-void SPI_INTClr(SPI_TypeDef * SPIx, uint32_t it);		//ÖĞ¶Ï±êÖ¾Çå³ı
-uint32_t SPI_INTStat(SPI_TypeDef * SPIx, uint32_t it);	//ÖĞ¶Ï×´Ì¬²éÑ¯
+void SPI_INTEn(SPI_TypeDef * SPIx, uint32_t it);		//ä¸­æ–­ä½¿èƒ½
+void SPI_INTDis(SPI_TypeDef * SPIx, uint32_t it);		//ä¸­æ–­ç¦æ­¢
+void SPI_INTClr(SPI_TypeDef * SPIx, uint32_t it);		//ä¸­æ–­æ ‡å¿—æ¸…é™¤
+uint32_t SPI_INTStat(SPI_TypeDef * SPIx, uint32_t it);	//ä¸­æ–­çŠ¶æ€æŸ¥è¯¢
 
 
 
 
 typedef struct {
-	uint8_t  Mode;			//I2S_MASTER_TX¡¢I2S_MASTER_RX¡¢I2S_MASTER_TX_RX¡¢I2S_SLAVE_TX¡¢I2S_SLAVE_RX¡¢I2S_SLAVE_TX_RX
-	uint8_t  FrameFormat;	//I2S_I2S_PHILIPS¡¢I2S_MSB_JUSTIFIED¡¢I2S_PCM_SHORT¡¢I2S_PCM_LONG0¡¢I2S_PCM_LONG1
-	uint8_t  ChannelLen;	//I2S_CHNNLEN_16¡¢I2S_CHNNLEN_32
-	uint8_t  DataLen;		//I2S_DATALEN_8¡¢I2S_DATALEN_16¡¢I2S_DATALEN_24¡¢I2S_DATALEN_32
+	uint8_t  Mode;			//I2S_MASTER_TXã€I2S_MASTER_RXã€I2S_MASTER_TX_RXã€I2S_SLAVE_TXã€I2S_SLAVE_RXã€I2S_SLAVE_TX_RX
+	uint8_t  FrameFormat;	//I2S_I2S_PHILIPSã€I2S_MSB_JUSTIFIEDã€I2S_PCM_SHORTã€I2S_PCM_LONG0ã€I2S_PCM_LONG1
+	uint8_t  ChannelLen;	//I2S_CHNNLEN_16ã€I2S_CHNNLEN_32
+	uint8_t  DataLen;		//I2S_DATALEN_8ã€I2S_DATALEN_16ã€I2S_DATALEN_24ã€I2S_DATALEN_32
 	uint32_t ClkFreq;		//I2S_SCLK Frequency
 	
-	uint8_t  RXThreshold;	//È¡Öµ1--8
-	uint8_t  RXThresholdIEn;//µ±RX FIFOÖĞÊı¾İ¸öÊı >= RXThresholdÊ±´¥·¢ÖĞ¶Ï
+	uint8_t  RXThreshold;	//å–å€¼1--8
+	uint8_t  RXThresholdIEn;//å½“RX FIFOä¸­æ•°æ®ä¸ªæ•° >= RXThresholdæ—¶è§¦å‘ä¸­æ–­
 	
-	uint8_t  TXThreshold;	//È¡Öµ0--7
-	uint8_t  TXThresholdIEn;//µ±TX FIFOÖĞÊı¾İ¸öÊı <= TXThresholdÊ±´¥·¢ÖĞ¶Ï
+	uint8_t  TXThreshold;	//å–å€¼0--7
+	uint8_t  TXThresholdIEn;//å½“TX FIFOä¸­æ•°æ®ä¸ªæ•° <= TXThresholdæ—¶è§¦å‘ä¸­æ–­
 	
-	uint8_t  TXCompleteIEn;	//·¢ËÍFIFO¿ÕÇÒ·¢ËÍÒÆÎ»¼Ä´æÆ÷¿ÕÖĞ¶ÏÊ¹ÄÜ
+	uint8_t  TXCompleteIEn;	//å‘é€FIFOç©ºä¸”å‘é€ç§»ä½å¯„å­˜å™¨ç©ºä¸­æ–­ä½¿èƒ½
 } I2S_InitStructure;
 
 #define I2S_MASTER_RX		5
@@ -109,9 +109,9 @@ typedef struct {
 #define I2S_DATALEN_24		2
 #define I2S_DATALEN_32		3
 
-void I2S_Init(SPI_TypeDef * SPIx, I2S_InitStructure * initStruct);		//I2S³õÊ¼»¯
-void I2S_Open(SPI_TypeDef * SPIx);										//I2S´ò¿ª£¬ÔÊĞíÊÕ·¢
-void I2S_Close(SPI_TypeDef * SPIx);										//I2S¹Ø±Õ£¬½ûÖ¹ÊÕ·¢
+void I2S_Init(SPI_TypeDef * SPIx, I2S_InitStructure * initStruct);		//I2Såˆå§‹åŒ–
+void I2S_Open(SPI_TypeDef * SPIx);										//I2Sæ‰“å¼€ï¼Œå…è®¸æ”¶å‘
+void I2S_Close(SPI_TypeDef * SPIx);										//I2Så…³é—­ï¼Œç¦æ­¢æ”¶å‘
 void I2S_MCLKConfig(SPI_TypeDef * SPIx, uint32_t output_enable, uint32_t mclk_freq);
 
 

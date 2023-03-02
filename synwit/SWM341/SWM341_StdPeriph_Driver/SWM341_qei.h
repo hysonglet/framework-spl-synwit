@@ -2,13 +2,13 @@
 #define __SWM341_QEI_H__
 
 typedef struct {
-	uint8_t  mode;					//QEI_MODE_X2¡¢QEI_MODE_X4
-	uint16_t maxcnt;				//×î´ó¼ÆÊıÖµ
-	uint8_t  swapAB;				//1 ½»»»A¡¢BÒı½Å
-	uint8_t  intINDEXEn;			//¼ì²âµ½IndexÂö³åÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  intMATCHEn;			//POSCNTµİÔöµ½ÓëMAXCNTÏàµÈ£¬»òPOSCNT´ÓMAXCNTµİ¼õµ½0ÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  intCNTOVEn;			//Counter Overrun£¬¼ÆÊıÆ÷Òç³öÖĞ¶ÏÊ¹ÄÜ
-	uint8_t  intERROREn;			//¼ÆÊıÆ÷´íÎóÖĞ¶ÏÊ¹ÄÜ
+	uint8_t  mode;					//QEI_MODE_X2ã€QEI_MODE_X4
+	uint16_t maxcnt;				//æœ€å¤§è®¡æ•°å€¼
+	uint8_t  swapAB;				//1 äº¤æ¢Aã€Bå¼•è„š
+	uint8_t  intINDEXEn;			//æ£€æµ‹åˆ°Indexè„‰å†²ä¸­æ–­ä½¿èƒ½
+	uint8_t  intMATCHEn;			//POSCNTé€’å¢åˆ°ä¸MAXCNTç›¸ç­‰ï¼Œæˆ–POSCNTä»MAXCNTé€’å‡åˆ°0ä¸­æ–­ä½¿èƒ½
+	uint8_t  intCNTOVEn;			//Counter Overrunï¼Œè®¡æ•°å™¨æº¢å‡ºä¸­æ–­ä½¿èƒ½
+	uint8_t  intERROREn;			//è®¡æ•°å™¨é”™è¯¯ä¸­æ–­ä½¿èƒ½
 } QEI_InitStructure;
 
 
@@ -21,17 +21,17 @@ typedef struct {
 #define QEI_INT_ERROR		(1 << 3)
 
 
-void QEI_Init(QEI_TypeDef * QEIx, QEI_InitStructure * initStruct);		//QEI³õÊ¼»¯
-void QEI_Start(QEI_TypeDef * QEIx);						//Æô¶¯QEI
-void QEI_Stop(QEI_TypeDef * QEIx);						//¹Ø±ÕQEI
+void QEI_Init(QEI_TypeDef * QEIx, QEI_InitStructure * initStruct);		//QEIåˆå§‹åŒ–
+void QEI_Start(QEI_TypeDef * QEIx);						//å¯åŠ¨QEI
+void QEI_Stop(QEI_TypeDef * QEIx);						//å…³é—­QEI
 
-uint32_t QEI_IndexLvl(QEI_TypeDef * QEIx);				//QEI IndexÒı½ÅµçÆ½
-uint32_t QEI_CountDir(QEI_TypeDef * QEIx);				//QEI¼ÆÊı·½Ïò£¬0 ·´Ïò¼ÆÊı	1 ÕıÏò¼ÆÊı
+uint32_t QEI_IndexLvl(QEI_TypeDef * QEIx);				//QEI Indexå¼•è„šç”µå¹³
+uint32_t QEI_CountDir(QEI_TypeDef * QEIx);				//QEIè®¡æ•°æ–¹å‘ï¼Œ0 åå‘è®¡æ•°	1 æ­£å‘è®¡æ•°
 
-void QEI_IntEn(QEI_TypeDef * QEIx, uint32_t it);		//QEIÖĞ¶ÏÊ¹ÄÜ
-void QEI_IntDis(QEI_TypeDef * QEIx, uint32_t it);		//QEIÖĞ¶Ï¹Ø±Õ
-void QEI_IntClr(QEI_TypeDef * QEIx, uint32_t it);		//QEIÖĞ¶Ï±êÖ¾Çå³ı
-uint32_t QEI_IntStat(QEI_TypeDef * QEIx, uint32_t it);	//QEIÖĞ¶Ï×´Ì¬²éÑ¯
+void QEI_IntEn(QEI_TypeDef * QEIx, uint32_t it);		//QEIä¸­æ–­ä½¿èƒ½
+void QEI_IntDis(QEI_TypeDef * QEIx, uint32_t it);		//QEIä¸­æ–­å…³é—­
+void QEI_IntClr(QEI_TypeDef * QEIx, uint32_t it);		//QEIä¸­æ–­æ ‡å¿—æ¸…é™¤
+uint32_t QEI_IntStat(QEI_TypeDef * QEIx, uint32_t it);	//QEIä¸­æ–­çŠ¶æ€æŸ¥è¯¢
 
 
 #endif //__SWM341_QEI_H__

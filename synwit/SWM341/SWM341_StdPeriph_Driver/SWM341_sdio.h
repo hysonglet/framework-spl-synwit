@@ -35,10 +35,10 @@
 #define SD_CMD_SDIO_RW_EXTENDED                    ((uint8_t)53)
 
 
-#define SD_RESP_NO			0	//0 ÎŞÏìÓ¦
-#define SD_RESP_32b			2	//2 32Î»ÏìÓ¦
-#define SD_RESP_128b		1	//1 128Î»ÏìÓ¦
-#define SD_RESP_32b_busy	3	//3 32Î»ÏìÓ¦£¬check Busy after response
+#define SD_RESP_NO			0	//0 æ— å“åº”
+#define SD_RESP_32b			2	//2 32ä½å“åº”
+#define SD_RESP_128b		1	//1 128ä½å“åº”
+#define SD_RESP_32b_busy	3	//3 32ä½å“åº”ï¼Œcheck Busy after response
 
 #define SD_BUSWIDTH_1b		0
 #define SD_BUSWIDTH_4b		2

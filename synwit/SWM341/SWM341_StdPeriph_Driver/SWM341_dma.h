@@ -3,25 +3,25 @@
 
 
 typedef struct {
-	uint8_t  Mode;			//DMA_MODE_SINGLE¡¢DMA_MODE_CIRCLE
+	uint8_t  Mode;			//DMA_MODE_SINGLEã€DMA_MODE_CIRCLE
 	
-	uint8_t  Unit;			//DMA_UNIT_BYTE¡¢DMA_UNIT_HALFWORD¡¢DMA_UNIT_WORD
+	uint8_t  Unit;			//DMA_UNIT_BYTEã€DMA_UNIT_HALFWORDã€DMA_UNIT_WORD
 	
-	uint32_t Count;			//´«Êä Unit ¸öÊı£¬×î´óÈ¡Öµ0x100000
+	uint32_t Count;			//ä¼ è¾“ Unit ä¸ªæ•°ï¼Œæœ€å¤§å–å€¼0x100000
 	
 	uint32_t SrcAddr;
 	
 	uint32_t DstAddr;
 	
-	uint8_t  SrcAddrInc;	//0 µØÖ·¹Ì¶¨    1 µØÖ·µİÔö
+	uint8_t  SrcAddrInc;	//0 åœ°å€å›ºå®š    1 åœ°å€é€’å¢
 	
 	uint8_t  DstAddrInc;
 	
-	uint8_t  Handshake;		//´«ÊäÎÕÊÖĞÅºÅ£ºDMA_HS_NO¡¢DMA_CH0_UART0TX¡¢DMA_CH0_SPI0TX¡¢... ...
+	uint8_t  Handshake;		//ä¼ è¾“æ¡æ‰‹ä¿¡å·ï¼šDMA_HS_NOã€DMA_CH0_UART0TXã€DMA_CH0_SPI0TXã€... ...
 	
-	uint8_t  Priority;		//DMA_PRI_LOW¡¢DMA_PRI_HIGH
+	uint8_t  Priority;		//DMA_PRI_LOWã€DMA_PRI_HIGH
 	
-	uint32_t  INTEn;		//ÖĞ¶ÏÊ¹ÄÜ£¬ÓĞĞ§ÖµÓĞ DMA_IT_DONE¡¢DMA_IT_DSTSG_HALF¡¢DMA_IT_DSTSG_DONE¡¢DMA_IT_SRCSG_HALF¡¢DMA_IT_SRCSG_DONE ¼°Æä¡°»ò¡±
+	uint32_t  INTEn;		//ä¸­æ–­ä½¿èƒ½ï¼Œæœ‰æ•ˆå€¼æœ‰ DMA_IT_DONEã€DMA_IT_DSTSG_HALFã€DMA_IT_DSTSG_DONEã€DMA_IT_SRCSG_HALFã€DMA_IT_SRCSG_DONE åŠå…¶â€œæˆ–â€
 } DMA_InitStructure;
 
 
@@ -30,8 +30,8 @@ typedef struct {
 #define DMA_CH2		2
 #define DMA_CH3		3
 
-#define DMA_MODE_SINGLE			0		// µ¥´ÎÄ£Ê½£¬´«ÊäÍê³ÉºóÍ£Ö¹
-#define DMA_MODE_CIRCLE			1		// »·ĞÎÄ£Ê½£¬´«ÊäÍê³Éºó´ÓÍ·Ö´ĞĞÏÂÒ»ÂÖ´«Êä
+#define DMA_MODE_SINGLE			0		// å•æ¬¡æ¨¡å¼ï¼Œä¼ è¾“å®Œæˆååœæ­¢
+#define DMA_MODE_CIRCLE			1		// ç¯å½¢æ¨¡å¼ï¼Œä¼ è¾“å®Œæˆåä»å¤´æ‰§è¡Œä¸‹ä¸€è½®ä¼ è¾“
 
 #define DMA_UNIT_BYTE		0
 #define DMA_UNIT_HALFWORD	1
@@ -41,17 +41,17 @@ typedef struct {
 #define DMA_PRI_HIGH		1
 
 
-#define DMA_HS_NO			(0 << 4)	// ÎŞÎÕÊÖ£¨Handshake£©ĞÅºÅ£¬Æô¶¯´«ÊäºóÈ«²¿´«Íê
-#define DMA_HS_SRC			(1 << 4)	// Ô´  ²àÎÕÊÖĞÅºÅ£¬Æô¶¯´«ÊäºóÔ´  ²àÉú³ÉÒ»¸öÊı¾İ£¬DMA°áÔËÒ»¸öUnit
-#define DMA_HS_DST			(2 << 4)	// Ä¿±ê²àÎÕÊÖĞÅºÅ£¬Æô¶¯´«ÊäºóÄ¿±ê²àË÷È¡Ò»¸öÊı¾İ£¬DMA°áÔËÒ»¸öUnit
-#define DMA_HS_EXT			(4 << 4)	// Íâ²¿  ÎÕÊÖĞÅºÅ£¬Æô¶¯´«ÊäºóÍâ²¿ÎÕÊÖÀ´Ò»¸öÂö³å£¬DMA°áÔËÒ»¸öUnit
+#define DMA_HS_NO			(0 << 4)	// æ— æ¡æ‰‹ï¼ˆHandshakeï¼‰ä¿¡å·ï¼Œå¯åŠ¨ä¼ è¾“åå…¨éƒ¨ä¼ å®Œ
+#define DMA_HS_SRC			(1 << 4)	// æº  ä¾§æ¡æ‰‹ä¿¡å·ï¼Œå¯åŠ¨ä¼ è¾“åæº  ä¾§ç”Ÿæˆä¸€ä¸ªæ•°æ®ï¼ŒDMAæ¬è¿ä¸€ä¸ªUnit
+#define DMA_HS_DST			(2 << 4)	// ç›®æ ‡ä¾§æ¡æ‰‹ä¿¡å·ï¼Œå¯åŠ¨ä¼ è¾“åç›®æ ‡ä¾§ç´¢å–ä¸€ä¸ªæ•°æ®ï¼ŒDMAæ¬è¿ä¸€ä¸ªUnit
+#define DMA_HS_EXT			(4 << 4)	// å¤–éƒ¨  æ¡æ‰‹ä¿¡å·ï¼Œå¯åŠ¨ä¼ è¾“åå¤–éƒ¨æ¡æ‰‹æ¥ä¸€ä¸ªè„‰å†²ï¼ŒDMAæ¬è¿ä¸€ä¸ªUnit
 #define DMA_HS_MSK			(7 << 4)
 
 #define DMA_DIR_RX			(0 << 7)	// SRC --> DST
 #define DMA_DIR_TX			(1 << 7)	// DST --> SRC
 #define DMA_DIR_MSK			(1 << 7)
 
-// Ô´²àÍâÉè
+// æºä¾§å¤–è®¾
 #define DMA_CH0_UART1RX		(0 | DMA_HS_SRC | DMA_DIR_RX)
 #define DMA_CH0_SPI1RX		(1 | DMA_HS_SRC | DMA_DIR_RX)
 #define DMA_CH0_UART2RX		(2 | DMA_HS_SRC | DMA_DIR_RX)
@@ -70,7 +70,7 @@ typedef struct {
 #define DMA_CH3_UART1RX		(2 | DMA_HS_SRC | DMA_DIR_RX)
 #define DMA_CH3_ADC1		(3 | DMA_HS_SRC | DMA_DIR_RX)
 
-// Ä¿±ê²àÍâÉè
+// ç›®æ ‡ä¾§å¤–è®¾
 #define DMA_CH0_UART0TX		(0 | DMA_HS_DST | DMA_DIR_RX)
 #define DMA_CH0_SPI0TX		(1 | DMA_HS_DST | DMA_DIR_RX)
 #define DMA_CH0_UART3TX		(2 | DMA_HS_DST | DMA_DIR_RX)
@@ -87,14 +87,14 @@ typedef struct {
 #define DMA_CH3_SPI0TX		(1 | DMA_HS_DST | DMA_DIR_RX)
 #define DMA_CH3_UART0TX		(2 | DMA_HS_DST | DMA_DIR_RX)
 
-// Íâ²¿ÎÕÊÖĞÅºÅ
+// å¤–éƒ¨æ¡æ‰‹ä¿¡å·
 #define DMA_EXHS_TIMR0		(0 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TIMR1		(1 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TIMR2		(2 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TIMR3		(3 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TIMR4		(4 | DMA_HS_EXT | DMA_DIR_RX)
-#define DMA_EXHS_TRIG0		(5 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG0Òı½Å
-#define DMA_EXHS_TRIG1		(6 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG1Òı½Å
+#define DMA_EXHS_TRIG0		(5 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG0å¼•è„š
+#define DMA_EXHS_TRIG1		(6 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG1å¼•è„š
 
 
 /* Interrupt Type */
@@ -106,7 +106,7 @@ typedef struct {
 
 
 
-void DMA_CH_Init(uint32_t chn, DMA_InitStructure * initStruct);	//DMAÍ¨µÀÅäÖÃ
+void DMA_CH_Init(uint32_t chn, DMA_InitStructure * initStruct);	//DMAé€šé“é…ç½®
 void DMA_CH_Open(uint32_t chn);
 void DMA_CH_Close(uint32_t chn);
 
@@ -115,10 +115,10 @@ void DMA_CH_SetSrcAddress(uint32_t chn, uint32_t address);
 void DMA_CH_SetDstAddress(uint32_t chn, uint32_t address);
 uint32_t DMA_CH_GetRemaining(uint32_t chn);
 
-void DMA_CH_INTEn(uint32_t chn, uint32_t it);					//DMAÖĞ¶ÏÊ¹ÄÜ
-void DMA_CH_INTDis(uint32_t chn, uint32_t it);					//DMAÖĞ¶Ï½ûÖ¹
-void DMA_CH_INTClr(uint32_t chn, uint32_t it);					//DMAÖĞ¶Ï±êÖ¾Çå³ı
-uint32_t DMA_CH_INTStat(uint32_t chn, uint32_t it);				//DMAÖĞ¶Ï×´Ì¬²éÑ¯
+void DMA_CH_INTEn(uint32_t chn, uint32_t it);					//DMAä¸­æ–­ä½¿èƒ½
+void DMA_CH_INTDis(uint32_t chn, uint32_t it);					//DMAä¸­æ–­ç¦æ­¢
+void DMA_CH_INTClr(uint32_t chn, uint32_t it);					//DMAä¸­æ–­æ ‡å¿—æ¸…é™¤
+uint32_t DMA_CH_INTStat(uint32_t chn, uint32_t it);				//DMAä¸­æ–­çŠ¶æ€æŸ¥è¯¢
 
 
 #endif //__SWM341_DMA_H__
