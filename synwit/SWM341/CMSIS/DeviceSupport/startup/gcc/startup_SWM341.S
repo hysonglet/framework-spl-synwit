@@ -6,17 +6,7 @@
    The HEAP starts at the end of the DATA section and grows upward.
    
    The STACK starts at the end of the RAM and grows downward     */
-    .section .stack
-    .align 3
     .globl    __StackTop
-    .globl    __StackLimit
-
-
-    .section .heap
-    .align 3
-    .globl    __HeapBase
-    .globl    __HeapLimit
-
 
     .section .isr_vector
     .align 2
@@ -162,11 +152,11 @@ Reset_Handler:
     movlo   r0, #0
     strlo   r0, [r2], #4
     blo    .Lbss_to_ram_loop
-
-    ldr    r0, =main
+	bl 	 	SystemInit
+	bl 		__libc_init_array
+	bl 		main
     bx     r0
     .pool    
-
 
     .text
 /* Macro to define default handlers. 
