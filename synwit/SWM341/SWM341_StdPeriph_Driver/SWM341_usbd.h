@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*USBD_ClassRequest_Callback)(USB_Setup_Packet_t * pSetup);
 typedef void (*USBD_VendorRequest_Callback)(USB_Setup_Packet_t * pSetup);
 
@@ -123,5 +127,9 @@ void USBD_TxWrite(uint8_t epnr, uint8_t *data, uint16_t size);
 uint16_t USBD_RxRead(uint8_t *buff, uint16_t size);
 
 void USBD_memcpy(uint8_t *destin, uint8_t *source, uint32_t nByte);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif //__SWM341_USBD_H__

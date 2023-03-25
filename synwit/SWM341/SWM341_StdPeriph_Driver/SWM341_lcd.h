@@ -1,6 +1,10 @@
 #ifndef __SWM341_LCD_H__
 #define __SWM341_LCD_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  ClkDiv;		//取值范围2--65
@@ -76,6 +80,10 @@ uint16_t LCD_ReadReg(LCD_TypeDef * LCDx, uint16_t reg);
 
 void MPULCD_DMAStart(LCD_TypeDef * LCDx, uint32_t * buff, uint16_t hpix, uint16_t vpix);
 uint32_t MPULCD_DMABusy(LCD_TypeDef * LCDx);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_LCD_H__

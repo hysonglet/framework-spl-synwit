@@ -1,6 +1,10 @@
 #ifndef __SWM341_SPI_H__
 #define __SWM341_SPI_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
 	uint8_t  FrameFormat;	//帧格式：SPI_FORMAT_SPI、SPI_FORMAT_TI_SSI
 	uint8_t  SampleEdge;	//在SPI帧格式下，选择数据采样边沿：SPI_FIRST_EDGE、SPI_SECOND_EDGE
@@ -113,6 +117,10 @@ void I2S_Init(SPI_TypeDef * SPIx, I2S_InitStructure * initStruct);		//I2S初始�
 void I2S_Open(SPI_TypeDef * SPIx);										//I2S打开，允许收发
 void I2S_Close(SPI_TypeDef * SPIx);										//I2S关闭，禁止收发
 void I2S_MCLKConfig(SPI_TypeDef * SPIx, uint32_t output_enable, uint32_t mclk_freq);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_SPI_H__

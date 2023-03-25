@@ -1,6 +1,10 @@
 #ifndef __SWM341_UART_H__
 #define __SWM341_UART_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
 	uint32_t Baudrate;
 	
@@ -87,6 +91,10 @@ void UART_INTEn(UART_TypeDef * UARTx, uint32_t it);
 void UART_INTDis(UART_TypeDef * UARTx, uint32_t it);
 void UART_INTClr(UART_TypeDef * UARTx, uint32_t it);
 uint32_t UART_INTStat(UART_TypeDef * UARTx, uint32_t it);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_UART_H__

@@ -1,6 +1,11 @@
 #ifndef __SWM341_SDRAM_H__
 #define __SWM341_SDRAM_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef struct {	
 	uint8_t Size;				// SDRAM 容量，SDRAM_SIZE_2MB、SDRAM_SIZE_8MB、SDRAM_SIZE_16MB、SDRAM_SIZE_32MB
 	uint8_t ClkDiv;				// SDRAM 时钟分频，SDRAM_CLKDIV_1、SDRAM_CLKDIV_2
@@ -53,5 +58,9 @@ void SDRAM_Init(SDRAM_InitStructure * initStruct);
 
 void SDRAM_Enable(void);
 void SDRAM_Disable(void);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif //__SWM341_SDRAM_H__

@@ -2,6 +2,10 @@
 #define __SWM341_DIV_H__
 
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void DIV_Init(DIV_TypeDef * DIVx);
 
 
@@ -125,5 +129,10 @@ static __INLINE uint32_t DIV_Root_Result(void)
 		return DIV->ROOT >> 16;
 	}
 }
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif //__SWM341_DIV_H__

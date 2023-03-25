@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint16_t Interval;			// 每传输一块数据（64个字），等待指定个系统周期后再传输下一个块，防止DMA2D占用过多SDRAM带宽，影响LCD读取显示数据；取值1--1023
@@ -52,6 +56,10 @@ void DMA2D_INTEn(void);
 void DMA2D_INTDis(void);
 void DMA2D_INTClr(void);
 uint32_t DMA2D_INTStat(void);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif // __SWM341_DMA2D_H__

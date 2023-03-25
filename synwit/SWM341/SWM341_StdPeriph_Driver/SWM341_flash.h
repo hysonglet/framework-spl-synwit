@@ -1,6 +1,10 @@
 #ifndef __SWM341_FLASH_H__
 #define __SWM341_FLASH_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 uint32_t FLASH_Erase(uint32_t addr);
 uint32_t FLASH_Write(uint32_t addr, uint32_t buff[], uint32_t count);
@@ -22,6 +26,10 @@ extern const IAP_Cache_Reset_t IAP_Cache_Reset;
 extern const IAP_Flash_Param_t IAP_Flash_Param;
 extern const IAP_Flash_Erase_t IAP_Flash_Erase;
 extern const IAP_Flash_Write_t IAP_Flash_Write;
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_FLASH_H__

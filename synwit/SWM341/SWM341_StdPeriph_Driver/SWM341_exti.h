@@ -1,6 +1,10 @@
 #ifndef __SWM341_EXTI_H__
 #define	__SWM341_EXTI_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void EXTI_Init(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t mode);	//指定引脚外部中断初始化
 void EXTI_Open(GPIO_TypeDef * GPIOx, uint32_t n);					//指定引脚外部中断打开（即使能）
 void EXTI_Close(GPIO_TypeDef * GPIOx, uint32_t n);					//指定引脚外部中断关闭（即禁能）
@@ -15,6 +19,10 @@ void EXTI_Clear(GPIO_TypeDef * GPIOx, uint32_t n);					//指定引脚外部中�
 #define EXTI_BOTH_EDGE	0x02	//双边沿触发中断
 #define EXTI_LOW_LEVEL	0x10	//低电平触发中断
 #define EXTI_HIGH_LEVEL	0x11	//高电平触发中断
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_EXTI_H__

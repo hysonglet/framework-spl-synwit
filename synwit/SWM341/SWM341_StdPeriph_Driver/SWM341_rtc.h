@@ -1,6 +1,10 @@
 #ifndef __SWM341_RTC_H__
 #define __SWM341_RTC_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #define RTC_CLKSRC_LRC32K	0
 #define RTC_CLKSRC_XTAL32K	1
@@ -73,5 +77,9 @@ void RTC_IntAlarmEn(RTC_TypeDef * RTCx);
 void RTC_IntAlarmDis(RTC_TypeDef * RTCx);
 void RTC_IntAlarmClr(RTC_TypeDef * RTCx);
 uint32_t RTC_IntAlarmStat(RTC_TypeDef * RTCx);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif //__SWM341_RTC_H__

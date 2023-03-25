@@ -1,6 +1,10 @@
 #ifndef __SWM341_IOFILT_H__
 #define __SWM341_IOFILT_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /* 选择对哪个信号进行滤波 */
 #define IOFILT0_PB5		0
@@ -35,6 +39,10 @@
 void IOFILT_Init(uint32_t IOFILTn, uint32_t signal, uint32_t width);
 void IOFILT_Open(uint32_t IOFILTn);
 void IOFILT_Close(uint32_t IOFILTn);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif // __SWM341_IOFILT_H__

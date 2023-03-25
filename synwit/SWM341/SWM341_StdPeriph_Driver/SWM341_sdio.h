@@ -1,6 +1,10 @@
 #ifndef __SWM341_SDIO_H__
 #define __SWM341_SDIO_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #define SD_CMD_GO_IDLE_STATE                       ((uint8_t)0)
 #define SD_CMD_SEND_OP_COND                        ((uint8_t)1)
@@ -143,5 +147,9 @@ void parseCID(uint32_t CID_Tab[4]);
 void parseCSD(uint32_t CID_Tab[4]);
 
 uint32_t calcSDCLKDiv(uint32_t freq_sel);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif //__SWM341_SDIO_H__

@@ -1,6 +1,10 @@
 #ifndef __SWM341_TIMR_H__
 #define __SWM341_TIMR_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define TIMR_MODE_TIMER		((0 << 2) | 0)
 #define TIMR_MODE_IC		((1 << 2) | 0)	//输入捕获
 #define TIMR_MODE_OC		((2 << 2) | 0)	//输出比较
@@ -55,6 +59,10 @@ void TIMR_IC_CaptureOV_INTEn(TIMR_TypeDef * TIMRx);
 void TIMR_IC_CaptureOV_INTDis(TIMR_TypeDef * TIMRx);
 void TIMR_IC_CaptureOV_INTClr(TIMR_TypeDef * TIMRx);
 uint32_t TIMR_IC_CaptureOV_INTStat(TIMR_TypeDef * TIMRx);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_TIMR_H__

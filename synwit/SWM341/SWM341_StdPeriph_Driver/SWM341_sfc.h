@@ -1,6 +1,10 @@
 #ifndef __SWM341_SFC_H__
 #define __SWM341_SFC_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t ClkDiv;				//SPI_SCLK是系统时钟的几分频，取值：SFC_CLKDIV_1、SFC_CLKDIV_2、SFC_CLKDIV_4、SFC_CLKDIV_8
@@ -55,5 +59,9 @@ void SFC_QuadSwitch(uint8_t on);
 uint8_t SFC_QuadState(void);
 uint8_t SFC_FlashBusy(void);
 
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif //__SWM341_SFC_H__

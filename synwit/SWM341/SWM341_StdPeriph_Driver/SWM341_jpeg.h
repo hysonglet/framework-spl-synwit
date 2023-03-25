@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  DoneIEn;			// 解码完成中断使能
@@ -88,6 +92,10 @@ typedef struct {
 void JPEG_Init(JPEG_TypeDef * JPEGx, JPEG_InitStructure * initStruct);
 void JPEG_Decode(JPEG_TypeDef * JPEGx, jfif_info_t * jfif_info, jpeg_outset_t * jpeg_outset);
 uint32_t JPEG_DecodeBusy(JPEG_TypeDef * JPEGx);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_JPEG_H__

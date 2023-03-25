@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef enum {
     USBR_ACK = 0,
@@ -37,6 +41,10 @@ uint32_t USBH_SendOutPacket(uint8_t addr, uint8_t endp, uint8_t DATAx, uint8_t *
 uint32_t USBH_SendInPacket(uint8_t addr, uint8_t endp, uint8_t DATAx, uint16_t size);
 
 uint32_t USBH_ReadRxBuffer(uint8_t *buff, uint32_t size);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif // __SWM341_USBH_H__

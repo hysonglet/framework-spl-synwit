@@ -1,6 +1,10 @@
 #ifndef __SWM341_CORDIC_H__
 #define __SWM341_CORDIC_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define CORDIC_PI	3.141592653589793
 
 void CORDIC_Init(CORDIC_TypeDef * CORDICx);
@@ -212,5 +216,10 @@ static __INLINE uint32_t CORDIC_Div_Result(void)
 {
 	return CORDIC->ARCTAN & (CORDIC_ARCTAN_F_Msk | CORDIC_ARCTAN_I_Msk);
 }
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif //__SWM341_CORDIC_H__

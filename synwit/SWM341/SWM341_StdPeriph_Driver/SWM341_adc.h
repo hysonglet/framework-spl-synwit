@@ -1,6 +1,10 @@
 #ifndef __SWM341_ADC_H__
 #define	__SWM341_ADC_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
 	uint8_t  clk_src;		//ADC转换时钟源：ADC_CLKSRC_HRC、ADC_CLKSRC_XTAL、...
 	uint8_t  samplAvg;		//采样取平均，触发启动ADC转换后，ADC在一个通道上连续采样、转换多次，并将它们的平均值作为该通道转换结果
@@ -104,6 +108,10 @@ void ADC_INTEn(ADC_TypeDef * ADCx, uint32_t seq, uint32_t it);
 void ADC_INTEn(ADC_TypeDef * ADCx, uint32_t seq, uint32_t it);
 void ADC_INTClr(ADC_TypeDef * ADCx, uint32_t seq, uint32_t it);
 uint32_t ADC_INTStat(ADC_TypeDef * ADCx, uint32_t seq, uint32_t it);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_ADC_H__

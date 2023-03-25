@@ -1,6 +1,10 @@
 #ifndef __SWM341_DMA_H__
 #define __SWM341_DMA_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  Mode;			//DMA_MODE_SINGLE、DMA_MODE_CIRCLE
@@ -119,6 +123,10 @@ void DMA_CH_INTEn(uint32_t chn, uint32_t it);					//DMA中断使能
 void DMA_CH_INTDis(uint32_t chn, uint32_t it);					//DMA中断禁止
 void DMA_CH_INTClr(uint32_t chn, uint32_t it);					//DMA中断标志清除
 uint32_t DMA_CH_INTStat(uint32_t chn, uint32_t it);				//DMA中断状态查询
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_DMA_H__

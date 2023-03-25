@@ -1,6 +1,10 @@
 #ifndef __SWM341_QEI_H__
 #define __SWM341_QEI_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
 	uint8_t  mode;					//QEI_MODE_X2、QEI_MODE_X4
 	uint16_t maxcnt;				//最大计数值
@@ -32,6 +36,10 @@ void QEI_IntEn(QEI_TypeDef * QEIx, uint32_t it);		//QEI中断使能
 void QEI_IntDis(QEI_TypeDef * QEIx, uint32_t it);		//QEI中断关闭
 void QEI_IntClr(QEI_TypeDef * QEIx, uint32_t it);		//QEI中断标志清除
 uint32_t QEI_IntStat(QEI_TypeDef * QEIx, uint32_t it);	//QEI中断状态查询
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_QEI_H__

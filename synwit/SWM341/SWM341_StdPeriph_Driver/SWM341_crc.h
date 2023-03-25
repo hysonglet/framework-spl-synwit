@@ -1,6 +1,10 @@
 #ifndef __SWM341_CRC_H__
 #define __SWM341_CRC_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint32_t init_crc;			// 初始值
@@ -55,5 +59,10 @@ static __INLINE uint32_t CRC_Result(void)
 {
 	return CRC->RESULT;
 }
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif //__SWM341_CRC_H__

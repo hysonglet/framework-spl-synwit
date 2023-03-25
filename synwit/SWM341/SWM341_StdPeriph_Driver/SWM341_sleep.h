@@ -1,6 +1,10 @@
 #ifndef __SWM341_SLEEP_H__
 #define __SWM341_SLEEP_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 #if   defined ( __CC_ARM )
 
@@ -12,6 +16,10 @@ __asm void EnterStopMode(void);
 __ramfunc void EnterSleepMode(void);
 __ramfunc void EnterStopMode(void);
 
+#endif
+
+#ifdef __cplusplus
+} /* extern "C" */
 #endif
 
 

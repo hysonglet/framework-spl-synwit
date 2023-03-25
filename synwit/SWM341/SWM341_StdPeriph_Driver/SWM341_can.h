@@ -1,6 +1,10 @@
 #ifndef __SWM341_CAN_H__
 #define __SWM341_CAN_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  Mode;				//CAN_MODE_NORMAL、CAN_MODE_LISTEN、CAN_MODE_SELFTEST
@@ -116,6 +120,10 @@ void CAN_INTEn(CAN_TypeDef * CANx, uint32_t it);
 void CAN_INTDis(CAN_TypeDef * CANx, uint32_t it);
 void CAN_INTClr(CAN_TypeDef * CANx, uint32_t it);
 uint32_t CAN_INTStat(CAN_TypeDef * CANx);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_CAN_H__

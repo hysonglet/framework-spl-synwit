@@ -1,6 +1,10 @@
 #ifndef __SWM341_PWM_H__
 #define	__SWM341_PWM_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  Mode;			//PWM_EDGE_ALIGNED、PWM_CENTER_ALIGNED、PWM_ASYM_CENTER_ALIGNED
@@ -120,6 +124,10 @@ void PWM_BrkIntEn(uint32_t brkit);   										//刹车中断使能
 void PWM_BrkIntDis(uint32_t brkit);  										//刹车中断禁能
 void PWM_BrkIntClr(uint32_t brkit);  										//刹车中断标志清除
 uint32_t PWM_BrkIntStat(uint32_t brkit); 									//刹车中断标志查询
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_PWM_H__

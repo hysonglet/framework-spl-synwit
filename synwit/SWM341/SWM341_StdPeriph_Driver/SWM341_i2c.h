@@ -1,6 +1,10 @@
 #ifndef __SWM341_I2C_H__
 #define __SWM341_I2C_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  Master;		//1 主机模式    0 从机模式
@@ -49,5 +53,10 @@ void I2C_INTEn(I2C_TypeDef * I2Cx, uint32_t it);		//中断使能
 void I2C_INTDis(I2C_TypeDef * I2Cx, uint32_t it);		//中断禁止
 void I2C_INTClr(I2C_TypeDef * I2Cx, uint32_t it);		//中断标志清除
 uint32_t I2C_INTStat(I2C_TypeDef * I2Cx, uint32_t it);	//中断状态查询
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
 
 #endif //__SWM341_I2C_H__

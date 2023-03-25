@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 typedef struct {
 	uint8_t  bRequestType;
@@ -213,6 +217,10 @@ typedef struct __attribute__((packed)) {
 	uint8_t  bMasterInterface;   	// Interface number of the Communication or Data Class interface
 	uint8_t  bSlaveInterface0;   	// Interface number of first slave
 } USB_CDC_UnionFuncDesc_t;
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_USB_H__

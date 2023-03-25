@@ -1,6 +1,10 @@
 #ifndef __SWM341_GPIO_H__
 #define	__SWM341_GPIO_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 void GPIO_Init(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t dir, uint32_t pull_up, uint32_t pull_down, uint32_t open_drain);	//引脚初始化，包含引脚方向、上拉、下拉、开漏
 
@@ -19,6 +23,10 @@ void GPIO_AtomicInvBit(GPIO_TypeDef * GPIOx, uint32_t n);
 void GPIO_AtomicSetBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w);
 void GPIO_AtomicClrBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w);
 void GPIO_AtomicInvBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 
 #endif //__SWM341_GPIO_H__
